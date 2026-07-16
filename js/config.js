@@ -28,9 +28,10 @@ window.LIFEOS_CONFIG = {
   VERSION: "0.1.0",
   LICENSE: "MIT",
 
-  // Download - direct link to the portable exe (Git LFS media endpoint)
-  DOWNLOAD_URL: "https://media.githubusercontent.com/media/PraveenKumarDreamnotion/LifeOS/main/release/LifeOS-0.1.0-portable.exe",
-  DOWNLOAD_FILENAME: "LifeOS-0.1.0-portable.exe",
+  // Download - direct link to the NSIS installer (Git LFS media endpoint; blob/raw URLs
+  // only serve the 134-byte LFS pointer, so we use media.githubusercontent.com/media/...)
+  DOWNLOAD_URL: "https://media.githubusercontent.com/media/PraveenKumarDreamnotion/LifeOS/main/release/LifeOS%20Setup%200.1.0.exe",
+  DOWNLOAD_FILENAME: "LifeOS Setup 0.1.0.exe",
   DOWNLOAD_SIZE: "~155 MB",
   PLATFORM: "Windows 10 (1809+) & 11 · 64-bit",
 

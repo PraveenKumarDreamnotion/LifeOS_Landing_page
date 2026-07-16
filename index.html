@@ -74,6 +74,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="#compare">Compare</a>
       <a href="#flow">How it works</a>
+      <a href="#reminders">Reminders</a>
       <a href="#cost">Cost</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -92,6 +93,7 @@
 <div class="mobile-menu" aria-label="Mobile navigation">
   <a href="#compare">Compare</a>
   <a href="#flow">How it works</a>
+  <a href="#reminders">Reminders</a>
   <a href="#cost">API cost</a>
   <a href="#faq">FAQ</a>
   <a class="btn btn-primary btn-block" data-download href="#download">Download for Windows</a>
@@ -541,6 +543,231 @@
     </div>
   </section>
 
+  <!-- ============================ OFFLINE REMINDERS ============================ -->
+  <section class="section section--warm section--divide" id="reminders">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Offline reminder commands</span>
+        <h2 class="balance">Create reminders that work completely offline.</h2>
+        <p>LifeOS understands many reminder phrases with a parser built into the app. As long as your
+          wording matches a supported pattern, the reminder is created instantly - with no internet
+          connection and no OpenAI API calls. Here is exactly what the current version understands.</p>
+      </div>
+
+      <!-- How the offline engine works -->
+      <div class="grid grid-3 split-cards" data-reveal>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9h1M4 15h1M19 9h1M19 15h1M9 4v1M15 4v1M9 19v1M15 19v1"/></svg></div>
+          <h3>A parser on your device</h3>
+          <p>A deterministic parser reads your phrase, finds the date and time with a local date library, and builds the reminder on your machine. No request ever leaves your PC.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/><path d="M8 13l3 3 5-6"/></svg></div>
+          <h3>No OpenAI for reminders</h3>
+          <p>Reminders never call OpenAI. Even with a key connected, the model never creates a reminder - it is always built by this local parser, so it costs nothing and works offline.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M16.6 8.4l2.8-2.8M17 12h4M12 12l7 4-4 1-1 4-2-9z"/></svg></div>
+          <h3>When AI steps in</h3>
+          <p>The cloud model is used only if you have enabled it and you type something that is not a reminder or a local command - a general question, for example. Reminders themselves stay offline.</p>
+        </article>
+      </div>
+
+      <!-- The recipe -->
+      <h3 class="rem-sub" data-reveal>Every offline reminder has three parts.</h3>
+      <p class="rem-lead" data-reveal>Give LifeOS a trigger, a time, and what to do. Leave one out and it asks a quick question instead of guessing.</p>
+      <div class="formula" data-reveal>
+        <div class="formula__part formula__part--trigger"><span class="k">Trigger</span><span class="v">remind me, set a reminder, don't forget, wake me</span></div>
+        <span class="formula__plus" aria-hidden="true">+</span>
+        <div class="formula__part formula__part--time"><span class="k">Time</span><span class="v">in 10 minutes, at 6 PM, tomorrow, on 25 July, every Monday</span></div>
+        <span class="formula__plus" aria-hidden="true">+</span>
+        <div class="formula__part formula__part--action"><span class="k">What to do</span><span class="v">to call John, to drink water, to submit the report</span></div>
+      </div>
+      <p class="formula-eg" data-reveal><span class="t">Remind me</span> <span class="d">tomorrow at 9 AM</span> <span class="a">to attend the meeting</span></p>
+
+      <!-- Examples -->
+      <h3 class="rem-sub" data-reveal>Examples that work offline.</h3>
+      <p class="rem-lead" data-reveal>Every phrase below was run against the current parser and creates a reminder instantly.</p>
+      <div class="grid grid-2 split-cards" data-reveal>
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h3>Basic &amp; one-time</h3>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me in 10 minutes to drink water</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me in 2 hours to take a break</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me at 6 PM to water the plants</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me tomorrow at 9 AM to attend the meeting</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me tonight at 8 PM to call Rahul</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></span>
+            <h3>Date &amp; time</h3>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me on Friday at 9 AM to submit the report</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me next Monday at 7 PM to pack</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me on 25 July at 6 PM to pay the electricity bill</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me on 25 December at 9 AM to send wishes</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me at 18:00 to water the plants <span class="say">(24-hour clock)</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/><path d="M3 5l3 2"/></svg></span>
+            <h3>Relative time</h3>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me in 30 minutes to stretch</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me in 45 mins to stretch</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me after 30 minutes to check the oven</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me in 3 days at 9 AM to renew the subscription</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>In 30 minutes remind me to stretch <span class="say">(word order is flexible)</span></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v6h6M21 22v-6h-6"/><path d="M21 8a9 9 0 0 0-15-3L3 8M3 16a9 9 0 0 0 15 3l3-3"/></svg></span>
+            <h3>Recurring <span class="say">- daily &amp; weekly</span></h3>
+          </div>
+          <div class="cmd-list">
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me every day at 8 AM to take vitamins</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me daily at 10 PM to sleep</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me every Monday at 7 AM to exercise</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me every Friday at 6 PM to submit my weekly report</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me every Sunday at 9 AM to call my family</div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Natural variations + asks-a-question -->
+      <div class="grid grid-2 split-cards" data-reveal style="margin-top:var(--space-4)">
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+            <h3>Natural variations</h3>
+          </div>
+          <p class="panel__sub">Different phrasings the parser also understands.</p>
+          <div class="cmd-list">
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Don't let me forget to call the dentist tomorrow at 11 AM</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Set a reminder for 5 PM to leave the office</div>
+            <div class="cmd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Remind me tomorrow at 5 PM to call John</div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
+            <h3>LifeOS asks a quick question</h3>
+          </div>
+          <p class="panel__sub">Recognized offline, but missing one detail - so it asks instead of guessing.</p>
+          <div class="cmd-list">
+            <div class="cmd cmd--ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="9"/></svg>Remind me at 6 <span class="say">-&gt; 6 AM or 6 PM?</span></div>
+            <div class="cmd cmd--ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="9"/></svg>Remind me Friday <span class="say">-&gt; what time on Friday?</span></div>
+            <div class="cmd cmd--ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="9"/></svg>Remind me tomorrow morning <span class="say">-&gt; which time?</span></div>
+            <div class="cmd cmd--ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="9"/></svg>Remind me every Monday <span class="say">-&gt; at what time?</span></div>
+            <div class="cmd cmd--ask"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17h.01M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="9"/></svg>Remind me on Friday at 9 AM <span class="say">-&gt; remind you about what?</span></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Not offline in chat -->
+      <div class="doc-note" data-reveal style="margin-top:var(--space-6)">
+        <strong>Not available from a chat phrase:</strong> monthly, yearly, every-other-week and every-N-days
+        repeats are not parsed in chat - set those with the <em>＋ New reminder</em> editor on the Schedules
+        screen (still fully offline). &ldquo;Every day&rdquo; and a specific weekday like &ldquo;every
+        Monday&rdquo; are the repeats chat understands. A phrase with no trigger word (for example
+        &ldquo;every day at 8 AM&rdquo; on its own) is treated as a normal message, so start with
+        &ldquo;remind me&rdquo; or &ldquo;set a reminder.&rdquo;
+      </div>
+
+      <!-- Online vs offline -->
+      <h3 class="rem-sub" data-reveal>Online vs offline.</h3>
+      <div class="grid grid-2 split-cards" data-reveal>
+        <article class="card cost-col cost-col--free">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Works offline - no key, no network</h3>
+          <ul class="tick-list">
+            <li>The reminder parser (intent, date &amp; time)</li>
+            <li>Daily &amp; weekly recurring reminders</li>
+            <li>Wall-clock scheduling (fires while running or in the tray)</li>
+            <li>Local SQLite storage of reminders &amp; history</li>
+            <li>Windows notifications and a spoken reminder</li>
+            <li>Complete, filterable reminder history</li>
+          </ul>
+        </article>
+        <article class="card cost-col cost-col--paid">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/></svg></div>
+          <h3>Needs your OpenAI key - not for reminders</h3>
+          <ul class="tick-list tick-list--cloud">
+            <li>General questions &amp; open conversation</li>
+            <li>Web-search answers with sources</li>
+            <li>Gmail email summaries &amp; auto-research</li>
+            <li>Higher-accuracy cloud speech-to-text</li>
+            <li>More natural cloud voices</li>
+          </ul>
+          <p class="panel__sub" style="margin-top:var(--space-4);margin-bottom:0">Creating reminders never appears on this side - it is always local.</p>
+        </article>
+      </div>
+
+      <!-- Pipeline -->
+      <h3 class="rem-sub" data-reveal>The offline reminder pipeline.</h3>
+      <div class="rpipe" data-reveal role="list" aria-label="Offline reminder pipeline">
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><b>Speak or type</b><span>mic or composer</span></div>
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg></span><b>On-device STT</b><span>+ wording fix</span></div>
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M17 12h4M12 12l7 4-4 1-1 4-2-9z"/></svg></span><b>Parse</b><span>intent, date &amp; time</span></div>
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><b>Confirm</b><span>click or say yes</span></div>
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><b>Save locally</b><span>SQLite</span></div>
+        <div class="rpipe__step" role="listitem"><span class="rpipe__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></span><b>Notify + history</b><span>on time</span></div>
+      </div>
+      <p class="rpipe-note" data-reveal>With cloud features off, every step above runs on your device - the network is never touched.</p>
+
+      <!-- Tips -->
+      <div class="callout" data-reveal style="margin-top:var(--space-8);text-align:left">
+        <span class="eyebrow">Best results</span>
+        <h2 class="balance" style="max-width:none;margin:var(--space-2) 0 var(--space-5)">Phrasing that works every time.</h2>
+        <div class="grid grid-2" style="text-align:left">
+          <ul class="tick-list">
+            <li>Start with <strong>&ldquo;remind me&rdquo;</strong> (or &ldquo;set a reminder&rdquo;) - it gives the cleanest reminder titles.</li>
+            <li>Include a clear time: an offset like <strong>&ldquo;in 20 minutes&rdquo;</strong>, or a clock time with <strong>AM/PM</strong> or 24-hour.</li>
+            <li>Add <strong>&ldquo;to &lt;action&gt;&rdquo;</strong> so LifeOS knows what the reminder is about.</li>
+          </ul>
+          <ul class="tick-list">
+            <li>For repeats, use <strong>&ldquo;every day&rdquo;</strong>, <strong>&ldquo;daily&rdquo;</strong>, or a specific weekday like <strong>&ldquo;every Monday&rdquo;</strong> - and give a time.</li>
+            <li>Avoid a bare hour like &ldquo;at 6&rdquo; - add AM or PM so it does not have to ask.</li>
+            <li>Nothing is saved until you confirm, so you can always correct the proposed reminder first.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq" data-reveal style="margin-top:var(--space-8)">
+        <details>
+          <summary>Do reminders need an internet connection? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">No. Parsing, scheduling, storage, and notifications all run on your device. Reminders work with zero network and no account.</div>
+        </details>
+        <details>
+          <summary>Do reminders use my OpenAI credits? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">No. The model never creates reminders. A reminder is always built by the local parser, so it makes no API calls and costs nothing - even when a key is connected.</div>
+        </details>
+        <details>
+          <summary>Can I say &ldquo;every month&rdquo; or &ldquo;every year&rdquo;? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">Not from a chat phrase - in chat, LifeOS repeats daily or on a specific weekday. For monthly, yearly, every-N or custom repeats with an end date, use the <em>＋ New reminder</em> editor on the Schedules screen. That editor is also fully offline.</div>
+        </details>
+        <details>
+          <summary>What happens if I leave out the time or the task? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">LifeOS asks a short follow-up rather than guessing - for example &ldquo;6 AM or 6 PM?&rdquo; for an ambiguous hour, or &ldquo;what time?&rdquo; when a day has no time. A wrong-half-of-day reminder is worse than a quick question.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================ SCREENSHOT CAROUSEL ============================ -->
   <section class="section section--tight section--divide" id="gallery" aria-label="Product screenshots">
     <div class="section-head section-head--center container" data-reveal>
@@ -795,6 +1022,7 @@
         <ul>
           <li><a href="#compare">How it compares</a></li>
           <li><a href="#flow">How it works</a></li>
+          <li><a href="#reminders">Offline reminders</a></li>
           <li><a href="#cost">API cost</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>

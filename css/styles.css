@@ -1001,3 +1001,53 @@ kbd {
 .mobile-menu a { display: block; padding: var(--space-3) 0; color: var(--ink-2); font-weight: 500; border-bottom: 1px solid var(--border); }
 .mobile-menu a:last-of-type { border-bottom: 0; }
 .mobile-menu .btn { margin-top: var(--space-4); }
+
+/* ==========================================================================
+   16. OFFLINE REMINDERS SECTION
+   ========================================================================== */
+.rem-sub { font-size: 1.3rem; text-align: center; margin: var(--space-9) auto var(--space-2); max-width: 30ch; }
+.rem-lead { text-align: center; color: var(--muted); font-size: var(--fs-sm); max-width: 60ch; margin: 0 auto var(--space-6); }
+
+/* recipe formula */
+.formula { display: flex; flex-wrap: wrap; align-items: stretch; justify-content: center; gap: var(--space-3); max-width: 780px; margin: 0 auto; }
+.formula__part { flex: 1 1 190px; border: 1px solid var(--border); border-radius: var(--r-md); background: var(--surface); padding: var(--space-4); text-align: center; box-shadow: var(--shadow-sm); }
+.formula__part .k { display: block; font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 5px; }
+.formula__part .v { font-size: var(--fs-sm); color: var(--muted); }
+.formula__part--trigger { border-top: 3px solid var(--accent); } .formula__part--trigger .k { color: var(--accent-strong); }
+.formula__part--time { border-top: 3px solid #2563eb; } .formula__part--time .k { color: #2563eb; }
+.formula__part--action { border-top: 3px solid #15803d; } .formula__part--action .k { color: #15803d; }
+:root[data-theme="dark"] .formula__part--time .k { color: #60a5fa; }
+:root[data-theme="dark"] .formula__part--action .k { color: #4ade80; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .formula__part--time .k { color: #60a5fa; } :root:not([data-theme="light"]) .formula__part--action .k { color: #4ade80; } }
+.formula__plus { align-self: center; font-size: 1.5rem; color: var(--faint); font-weight: 700; }
+.formula-eg { text-align: center; margin-top: var(--space-5); font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--ink-2); }
+.formula-eg .t { color: var(--accent-strong); font-weight: 650; }
+.formula-eg .d { color: #2563eb; font-weight: 650; }
+.formula-eg .a { color: #15803d; font-weight: 650; }
+:root[data-theme="dark"] .formula-eg .d { color: #60a5fa; } :root[data-theme="dark"] .formula-eg .a { color: #4ade80; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .formula-eg .d { color: #60a5fa; } :root:not([data-theme="light"]) .formula-eg .a { color: #4ade80; } }
+
+/* command example chips */
+.cmd-list { display: grid; gap: 8px; }
+.cmd { display: flex; align-items: flex-start; gap: 9px; font-family: var(--font-mono); font-size: 0.82rem; line-height: 1.45; color: var(--ink-2); background: var(--code-bg); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 9px 12px; }
+.cmd svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; color: #15803d; }
+.cmd--ask svg { color: #d97706; }
+.cmd--no svg { color: var(--faint); }
+.cmd .say { color: var(--muted); font-family: var(--font-sans); font-size: var(--fs-xs); }
+:root[data-theme="dark"] .cmd svg { color: #4ade80; } :root[data-theme="dark"] .cmd--ask svg { color: #fbbf24; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cmd svg { color: #4ade80; } :root:not([data-theme="light"]) .cmd--ask svg { color: #fbbf24; } }
+.panel__sub { font-size: var(--fs-xs); color: var(--muted); margin: -2px 0 var(--space-4); }
+
+/* reminder pipeline (reuses miniflow look, wider) */
+.rpipe { display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--space-3); }
+.rpipe__step { position: relative; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-sm); padding: var(--space-4) var(--space-2); box-shadow: var(--shadow-sm); }
+.rpipe__ic { width: 40px; height: 40px; margin: 0 auto var(--space-2); border-radius: 50%; display: grid; place-items: center; background: var(--surface-2); border: 1px solid var(--border); color: var(--accent-strong); }
+.rpipe__ic svg { width: 20px; height: 20px; }
+.rpipe__step b { display: block; font-size: 0.86rem; }
+.rpipe__step span { font-size: var(--fs-xs); color: var(--muted); }
+.rpipe__step:not(:last-child)::after { content: ""; position: absolute; right: -11px; top: 50%; width: 8px; height: 8px; border-top: 2px solid var(--faint); border-right: 2px solid var(--faint); transform: translateY(-50%) rotate(45deg); z-index: 2; }
+.rpipe-note { text-align: center; font-size: var(--fs-xs); color: var(--faint); margin-top: var(--space-4); }
+
+@media (max-width: 940px) { .rpipe { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 760px) { .rpipe__step:not(:last-child)::after { display: none; } }
+@media (max-width: 600px) { .rpipe { grid-template-columns: repeat(2, 1fr); } .formula__plus { display: none; } }

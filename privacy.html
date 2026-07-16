@@ -1,0 +1,151 @@
+<!doctype html>
+<!-- ==========================================================================
+     LifeOS - Privacy Policy (privacy.html)
+     Mirrors the product's real, code-enforced privacy posture.
+     ========================================================================== -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy - LifeOS</title>
+<meta name="description" content="LifeOS has no server, no account, and no telemetry. Your data lives on your device. Read exactly what is stored, and what is only ever sent when you opt in." />
+<meta name="theme-color" content="#f97316" />
+<meta name="robots" content="index,follow" />
+<link rel="canonical" href="https://dreamnotion.github.io/lifeos/privacy.html" />
+<link rel="icon" type="image/png" href="images/logo.png" />
+<link rel="apple-touch-icon" href="images/logo.png" />
+<link rel="manifest" href="manifest.json" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Privacy Policy - LifeOS" />
+<meta property="og:description" content="No server. No account. No telemetry. Here is exactly how LifeOS handles your data." />
+<meta property="og:image" content="images/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="css/styles.css" />
+<script>document.documentElement.classList.add("js");(function(){try{var t=localStorage.getItem("lifeos-theme");if(t)document.documentElement.setAttribute("data-theme",t);}catch(e){}})();</script>
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="LifeOS home"><img src="images/logo.png" alt="" width="26" height="26" /><span>LifeOS</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Toggle colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary" data-download href="index.html#download">Download</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" aria-label="Mobile navigation">
+  <a href="index.html#features">Features</a>
+  <a href="index.html#how">How it works</a>
+  <a href="privacy.html">Privacy</a>
+  <a href="terms.html">Terms</a>
+  <a href="index.html#faq">FAQ</a>
+  <a class="btn btn-primary btn-block" data-download href="index.html#download">Download for Windows</a>
+</div>
+
+<main class="doc">
+  <div class="doc__head">
+    <span class="eyebrow">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="lead">The short version: LifeOS has no server, no account, and no telemetry. Your reminders live in a file on your computer, and nothing is sent anywhere unless you turn on a feature that is off by default.</p>
+    <p class="updated">Last updated <span data-cfg="LEGAL_UPDATED">July 15, 2026</span> · Applies to LifeOS v<span data-cfg="VERSION">0.1.0</span></p>
+  </div>
+
+  <div class="doc__wrap">
+    <div class="toc">
+      <h4>On this page</h4>
+      <ul>
+        <li><a href="#stored">1. What is stored, and where</a></li>
+        <li><a href="#network">2. Network activity</a></li>
+        <li><a href="#openai">3. OpenAI &amp; cloud AI features</a></li>
+        <li><a href="#speech">4. Speech &amp; voice</a></li>
+        <li><a href="#email">5. Email &amp; Gmail</a></li>
+        <li><a href="#credentials">6. Keys &amp; credential storage</a></li>
+        <li><a href="#telemetry">7. Analytics &amp; telemetry</a></li>
+        <li><a href="#control">8. Your control &amp; data deletion</a></li>
+        <li><a href="#children">9. Children</a></li>
+        <li><a href="#changes">10. Changes &amp; contact</a></li>
+      </ul>
+    </div>
+
+    <h2 id="stored">1. What is stored, and where</h2>
+    <p>Everything LifeOS keeps lives in a single folder on your computer: <strong>%APPDATA%\LifeOS\</strong>. Inside it are a local database file (<code class="mono">lifeos.db</code>) that holds your reminders, reminder history, chat sessions, settings, and any encrypted keys or tokens you’ve added, plus a <code class="mono">logs</code> folder. The database is a standard SQLite file - you can open it with any SQLite browser and read every byte of it. There is no lock-in, because there is no server.</p>
+
+    <h2 id="network">2. Network activity</h2>
+    <p>By default: <strong>nothing</strong>. With its default settings, LifeOS makes zero network requests. This is enforced in code, not just promised in this document: a network filter blocks every outbound request that is not on an allowlist, and the allowlist is empty until you change a setting that requires it.</p>
+    <p>The only destination LifeOS ever contacts is <strong>OpenAI</strong> (<code class="mono">api.openai.com</code>), and only when you have enabled a cloud feature, added your own API key, and confirmed. If you also connect Gmail, LifeOS additionally contacts Google’s sign-in and Gmail endpoints on your behalf (see §5).</p>
+
+    <h2 id="openai">3. OpenAI &amp; cloud AI features</h2>
+    <p>Cloud AI is optional and off by default. Enabling it requires a consent dialog and your own OpenAI API key. When a cloud AI feature is active:</p>
+    <ul>
+      <li><strong>Sent to OpenAI:</strong> the text of the command or question you asked, plus the current date, time, and time zone.</li>
+      <li><strong>Never sent:</strong> any audio, your reminders, your reminder history, your notes, your settings, or your name, email, or device identifier.</li>
+    </ul>
+    <p>Requests go directly from your computer to OpenAI under your own API key and are billed to your own OpenAI account. LifeOS’s authors never see your data or your bill. OpenAI’s handling of that text is governed by <a href="https://openai.com/policies/" target="_blank" rel="noopener">OpenAI’s own policies</a>.</p>
+
+    <h2 id="speech">4. Speech &amp; voice</h2>
+    <p>By default, your voice is transcribed <strong>on your computer</strong> by a speech-recognition model that ships inside the app. Audio never leaves your machine and is never written to disk. There is no wake word and no background listening - Yogi records only while you hold or trigger the microphone.</p>
+    <p>If you opt in to cloud speech-to-text or cloud voices, the relevant audio or text is sent to OpenAI under your key for that single operation, exactly as described in §3. You can switch back to on-device speech and offline voices at any time.</p>
+
+    <h2 id="email">5. Email &amp; Gmail</h2>
+    <p>Connecting Gmail is entirely optional. When you connect it, you authorize LifeOS with <strong>read-only</strong> access (the <code class="mono">gmail.readonly</code> scope) using your own Google Cloud credentials. Synced email is stored locally in your LifeOS database and is <strong>never uploaded anywhere</strong> by LifeOS.</p>
+    <ul>
+      <li>AI email summaries and automatic web research are separate, opt-in features. When enabled, they use your OpenAI key exactly as described in §3.</li>
+      <li>Your Google sign-in tokens and client secret are encrypted at rest (see §6) and are never logged.</li>
+      <li>Disconnecting Gmail revokes the access token with Google and wipes the locally stored email data. You can also clear the local email cache on demand.</li>
+    </ul>
+
+    <h2 id="credentials">6. Keys &amp; credential storage</h2>
+    <p>Your OpenAI API key and any Gmail tokens are encrypted at rest using <strong>Windows DPAPI</strong>, via Electron’s <code class="mono">safeStorage</code>. The encryption is tied to your Windows user account, and the plaintext is only ever produced inside the app’s privileged process - it never crosses into the user interface.</p>
+    <div class="doc-note">Honest scope: this protects your secrets against someone copying your <code class="mono">%APPDATA%</code> folder to another machine. It does not protect against software already running as you on your own computer. If secure storage is unavailable, LifeOS refuses to write your key to disk in plaintext and offers to keep it in memory for the session instead.</div>
+
+    <h2 id="telemetry">7. Analytics &amp; telemetry</h2>
+    <p><strong>None.</strong> There is no analytics SDK, no crash reporter, no “anonymous usage statistics,” and no update ping. LifeOS does not phone home and does not know you exist. Because default operation is fully local, you can verify this yourself with a network monitor - and we encourage it.</p>
+
+    <h2 id="control">8. Your control &amp; data deletion</h2>
+    <p>You are always in control of your data:</p>
+    <ul>
+      <li><strong>Open data folder</strong> - Settings shows you exactly where your data lives so you can inspect or back it up.</li>
+      <li><strong>Reset local data</strong> - Settings → Danger Zone permanently deletes the reminders, history, and settings in your LifeOS data folder, and nothing else on your device.</li>
+      <li><strong>Pause everything</strong> - you can pause all reminders or turn off any cloud feature at any time.</li>
+      <li><strong>Uninstalling does not delete your data</strong> - this is intentional, so an accidental uninstall never loses your reminders. To remove everything, delete the <code class="mono">%APPDATA%\LifeOS\</code> folder by hand.</li>
+    </ul>
+
+    <h2 id="children">9. Children</h2>
+    <p>LifeOS is not directed at children under 13 and collects no information about anyone. Because all processing is local and no personal data is transmitted to LifeOS or its authors, there is no data collection to consent to.</p>
+
+    <h2 id="changes">10. Changes &amp; contact</h2>
+    <p>This policy applies to LifeOS v<span data-cfg="VERSION">0.1.0</span>. If a future version changes what data is stored or sent, this page and the in-app disclosures will be updated, and any new cloud capability will remain opt-in and separately disclosed.</p>
+    <p>Questions about privacy? Contact <a data-email href="#">the team</a> or open an issue <a data-github href="#" target="_blank" rel="noopener">on GitHub</a>.</p>
+    <div class="doc-note">This page is a plain-language summary of how LifeOS behaves. It describes the software’s design and is provided for transparency; it is not a contract. See the <a href="terms.html">Terms &amp; Conditions</a> for the terms that govern your use of LifeOS.</div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom" style="margin-top:0;border-top:0">
+      <span>© <span data-year>2026</span> DreamNotion · LifeOS v<span data-cfg="VERSION">0.1.0</span> · <a href="index.html" style="color:inherit">Home</a></span>
+      <div class="badges">
+        <a class="pill" href="privacy.html"><span class="dot"></span> Privacy</a>
+        <a class="pill" href="terms.html">Terms</a>
+        <a class="pill" data-github href="#" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

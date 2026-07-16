@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Update the host below to your real deployed domain.
+Sitemap: https://dreamnotion.github.io/lifeos/sitemap.xml

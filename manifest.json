@@ -1,0 +1,14 @@
+{
+  "name": "LifeOS - Privacy-first AI assistant",
+  "short_name": "LifeOS",
+  "description": "A voice-first AI companion for Windows named Yogi. Everything stays on your device.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#f97316",
+  "icons": [
+    { "src": "images/logo.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "images/logo.png", "sizes": "192x192", "type": "image/png", "purpose": "any" }
+  ]
+}

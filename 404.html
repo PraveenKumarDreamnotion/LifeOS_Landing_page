@@ -1,0 +1,76 @@
+<!doctype html>
+<!-- ==========================================================================
+     LifeOS - 404 page (404.html)
+     Self-contained: inline styles so it renders even when GitHub Pages serves
+     it from an unexpected path (where a relative stylesheet link could 404).
+     ========================================================================== -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found - LifeOS</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#f97316" />
+<link rel="icon" type="image/png" href="/images/logo.png" />
+<style>
+  :root {
+    --accent:#f97316; --accent-strong:#e86a0c; --accent-soft:#ff9a45;
+    --bg:#ffffff; --ink:#17171b; --muted:#6b6b76; --border:rgba(20,20,30,.1);
+    --surface:#fff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0a0a0c; --ink:#f3f3f5; --muted:#9c9ca8; --border:rgba(255,255,255,.12); --surface:#131318; }
+  }
+  *{box-sizing:border-box;margin:0}
+  html,body{height:100%}
+  body{
+    font-family:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg);color:var(--ink);
+    display:grid;place-items:center;text-align:center;padding:24px;
+    -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(60% 50% at 50% 0%, rgba(249,115,22,.14), transparent 70%);
+  }
+  .wrap{max-width:520px}
+  .logo{display:inline-flex;align-items:center;gap:10px;font-weight:680;font-size:1.1rem;margin-bottom:40px;color:var(--ink);text-decoration:none}
+  .logo img{width:26px;height:26px}
+  .code{
+    font-size:clamp(5rem,20vw,9rem);line-height:1;font-weight:760;letter-spacing:-.04em;
+    background:linear-gradient(120deg,var(--accent-strong),var(--accent-soft));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  h1{font-size:1.6rem;letter-spacing:-.02em;margin-top:8px}
+  p{color:var(--muted);margin:14px 0 28px;line-height:1.6}
+  .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:.8rem 1.4rem;border-radius:999px;font-weight:600;font-size:.9rem;text-decoration:none;border:1px solid transparent;transition:transform .18s,box-shadow .2s,border-color .2s}
+  .btn:active{transform:translateY(1px)}
+  .primary{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(249,115,22,.3)}
+  .primary:hover{background:var(--accent-strong);transform:translateY(-2px)}
+  .ghost{background:var(--surface);color:var(--ink);border-color:var(--border)}
+  .ghost:hover{border-color:var(--accent);color:var(--accent-strong)}
+</style>
+<script>
+  // Point "home" at the site root even on a project subpath (e.g. /lifeos/).
+  document.addEventListener("DOMContentLoaded", function () {
+    var parts = location.pathname.split("/").filter(Boolean);
+    var root = parts.length > 1 ? "/" + parts[0] + "/" : "/";
+    var home = document.getElementById("home");
+    var logo = document.getElementById("logo");
+    if (home) home.setAttribute("href", root);
+    if (logo) logo.setAttribute("href", root);
+  });
+</script>
+</head>
+<body>
+
+<div class="wrap">
+  <a class="logo" id="logo" href="/"><img src="/images/logo.png" alt="" width="26" height="26" /> LifeOS</a>
+  <div class="code">404</div>
+  <h1>This page wandered off.</h1>
+  <p>The page you’re looking for doesn’t exist or has moved. Yogi can’t find it either - and it looked everywhere on your device.</p>
+  <div class="actions">
+    <a class="btn primary" id="home" href="/">Back to home</a>
+    <a class="btn ghost" href="/privacy.html">Privacy Policy</a>
+  </div>
+</div>
+</body>
+</html>

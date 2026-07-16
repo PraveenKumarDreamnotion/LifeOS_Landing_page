@@ -1,0 +1,1561 @@
+<!doctype html>
+<!-- ==========================================================================
+     LifeOS - Landing page (index.html)
+     Static, framework-free. Content reflects the shipped v0.1.0 product only.
+     ========================================================================== -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>LifeOS - A privacy-first AI assistant for Windows</title>
+<meta name="description" content="Meet Yogi, a voice-first AI companion that runs on your own PC. Natural-language reminders, web answers, and inbox summaries - with no account, no telemetry, and your data staying on your device." />
+<meta name="theme-color" content="#f97316" />
+<meta name="author" content="DreamNotion" />
+<link rel="canonical" href="https://dreamnotion.github.io/lifeos/" />
+
+<!-- Icons & manifest -->
+<link rel="icon" type="image/png" href="images/logo.png" />
+<link rel="apple-touch-icon" href="images/logo.png" />
+<link rel="manifest" href="manifest.json" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="LifeOS" />
+<meta property="og:title" content="LifeOS - A privacy-first AI assistant for Windows" />
+<meta property="og:description" content="Talk to Yogi, a voice-first AI companion that lives on your own machine. Reminders, web answers, and inbox summaries with no account and no telemetry." />
+<meta property="og:image" content="images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://dreamnotion.github.io/lifeos/" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="LifeOS - A privacy-first AI assistant for Windows" />
+<meta name="twitter:description" content="A voice-first AI companion that runs on your own PC. No account, no telemetry, your data on your device." />
+<meta name="twitter:image" content="images/og-image.png" />
+
+<link rel="stylesheet" href="css/styles.css" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "LifeOS",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": "Windows 10, Windows 11",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "softwareVersion": "0.1.0",
+  "license": "https://opensource.org/licenses/MIT",
+  "description": "A privacy-first, voice-first AI assistant for Windows. Everything stays on your device."
+}
+</script>
+
+<!-- No-flash theme: apply saved choice before first paint -->
+<script>
+  document.documentElement.classList.add("js");
+  (function () {
+    try {
+      var t = localStorage.getItem("lifeos-theme");
+      if (t) document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" role="banner">
+  <div class="container">
+    <a class="brand" href="index.html" aria-label="LifeOS home">
+      <img src="images/logo.png" alt="" width="26" height="26" />
+      <span>LifeOS</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#problem">Problem</a>
+      <a href="#compare">Compare</a>
+      <a href="#features">Features</a>
+      <a href="#flow">How it works</a>
+      <a href="#tech">Built with</a>
+      <a href="#cost">Cost</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" type="button" aria-label="Toggle colour theme">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary" data-download href="#download">Download</a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" aria-label="Mobile navigation">
+  <a href="#problem">Problem</a>
+  <a href="#compare">Compare</a>
+  <a href="#features">Features</a>
+  <a href="#flow">How it works</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#tech">Built with</a>
+  <a href="#cost">API cost</a>
+  <a href="#database">Local data</a>
+  <a href="#roadmap">What's next</a>
+  <a href="#faq">FAQ</a>
+  <a class="btn btn-primary btn-block" data-download href="#download">Download for Windows</a>
+</div>
+
+<main>
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <div class="container">
+      <span class="pill hero-badge" data-reveal>
+        <span class="dot"></span> v<span data-cfg="VERSION">0.1.0</span> · Windows · Free &amp; open-source
+      </span>
+      <h1 class="balance" data-reveal data-delay="1">
+        The AI assistant that stays <span class="grad">on your device</span>.
+      </h1>
+      <p class="hero-sub" data-reveal data-delay="2">
+        LifeOS is a voice-first companion for Windows named <strong>Yogi</strong>. Talk or type to set
+        reminders, get answers from the web, and hear your inbox - with no account, no telemetry, and
+        your data living in a file on your own machine.
+      </p>
+      <div class="hero-cta" data-reveal data-delay="3">
+        <a class="btn btn-primary btn-lg" data-download href="#download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l4-4m-4 4l-4-4M4 21h16"/></svg>
+          Download for Windows
+        </a>
+        <a class="btn btn-secondary btn-lg" data-github href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.85 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.55-1.14-4.55-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.6.69.49A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+      <div class="hero-meta" data-reveal data-delay="4">
+        <span>◆ No account required</span>
+        <span>◆ No telemetry</span>
+        <span>◆ Works offline</span>
+        <span>◆ MIT licensed</span>
+      </div>
+
+      <div class="hero-stage" data-reveal data-delay="2">
+        <div class="app-frame media-glow">
+          <div class="app-frame__bar">
+            <span class="tl"></span><span class="tl"></span><span class="tl"></span>
+            <span class="title">LifeOS - Yogi</span>
+          </div>
+          <img src="images/screenshots/chat.png" alt="The LifeOS main window: Ask Yogi with a chat sidebar and a voice conversation prompt." width="1918" height="1017" loading="eager" />
+        </div>
+        <div class="hero-float" aria-hidden="true">
+          <img src="images/screenshots/launcher.png" alt="" width="472" height="473" />
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#what">
+        <span class="mouse"></span>
+        Scroll to explore
+      </a>
+    </div>
+  </section>
+
+  <!-- ============================ TRUST STRIP ============================ -->
+  <section class="trust" aria-label="At a glance">
+    <div class="container">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> On-device by default</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg> No account, no sync</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg> No telemetry</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 7a4 4 0 1 0-4 4h9m-3-4v8"/></svg> Bring-your-own AI key</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5v14"/></svg> Free &amp; MIT</span>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT IS LIFEOS ============================ -->
+  <section class="section" id="what">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">What is LifeOS</span>
+        <h2 class="balance">A personal AI companion that lives on your own machine.</h2>
+        <p>You talk to Yogi like a person. It sets reminders, answers questions with live sources,
+          and keeps an eye on your inbox - and it never sends your life to someone else's server
+          unless you explicitly turn a feature on, with your own key.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+          <h3>Voice-first, not voice-only</h3>
+          <p>Speak or type. Yogi listens, shows a live transcript you can edit, and replies out loud or on screen - whichever suits the moment.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Private by architecture</h3>
+          <p>Reminders, chats, and settings live in a local SQLite file. A built-in network filter blocks every outbound request until you enable a cloud feature.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h3>Fast desktop experience</h3>
+          <p>A native Windows app with a system-tray presence and a global hotkey, so Yogi is one keystroke away from anywhere.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PROBLEM & IDEA ============================ -->
+  <section class="section section--sunken" id="problem">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">The problem &amp; the idea</span>
+        <h2 class="balance">The most helpful assistants ask for the most trust.</h2>
+        <p>A voice assistant that sets reminders, answers questions, and reads your inbox has to touch the
+          most personal parts of your day. Almost every one solves that by shipping it all to a server.
+          LifeOS takes the opposite bet.</p>
+      </div>
+
+      <div class="grid grid-3" style="margin-bottom:var(--space-8)">
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3h18v14H7l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <h3>The productivity tax</h3>
+          <p>Reminders live in one app, questions in another, email in a third. Switching between them all
+            day is its own kind of work - and the tools that could unify it want an account first.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/><path d="M3 3l18 18"/></svg></div>
+          <h3>Why the usual assistants fall short</h3>
+          <p>Cloud assistants keep an always-open connection, often an always-listening mic, and ask you to
+            trust a policy document. They can't run offline, and they confidently make up live facts.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>Why local-first is the fix</h3>
+          <p>Your reminders, chats, email, and voice <em>are</em> your life. A promise can be broken; code
+            can't. LifeOS runs on your machine and proves it - the network is blocked by default, in code.</p>
+        </article>
+      </div>
+
+      <div class="callout" data-reveal>
+        <span class="eyebrow" style="justify-content:center">The idea</span>
+        <h2 class="balance">Keep the intelligence, move the trust boundary to your device.</h2>
+        <p>Everything runs on-device by default. Cloud intelligence is strictly opt-in, one toggle per
+          capability, and always uses <strong>your own</strong> OpenAI key - billed to you, gated in the
+          main process so the UI can't fake consent. You get a real companion without a data trail.</p>
+      </div>
+
+      <div class="table-wrap" data-reveal style="margin-top:var(--space-8)">
+        <table class="compare">
+          <caption class="sr-only">Traditional AI assistant compared with LifeOS</caption>
+          <thead>
+            <tr>
+              <th scope="col">How it works</th>
+              <th scope="col">Traditional cloud assistant</th>
+              <th scope="col" class="is-lifeos">LifeOS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Where your data lives</th><td>On the vendor's servers</td><td class="is-lifeos">On your device - one local SQLite file</td></tr>
+            <tr><th scope="row">Account &amp; sign-in</th><td>Required</td><td class="is-lifeos">None - no account, no sync</td></tr>
+            <tr><th scope="row">Works offline</th><td>No</td><td class="is-lifeos">Yes - reminders, time, local commands, on-device STT &amp; TTS</td></tr>
+            <tr><th scope="row">Network by default</th><td>Always connected</td><td class="is-lifeos">Default-deny - zero outbound until you enable a cloud feature</td></tr>
+            <tr><th scope="row">AI provider &amp; billing</th><td>Bundled subscription</td><td class="is-lifeos">Your own OpenAI key, per-feature toggles, billed to you</td></tr>
+            <tr><th scope="row">Microphone</th><td>Often always-on / wake word</td><td class="is-lifeos">Records only on hotkey or mic press - no wake word</td></tr>
+            <tr><th scope="row">Live facts</th><td>May hallucinate</td><td class="is-lifeos">Web search with citations, or an honest &ldquo;couldn't find it&rdquo;</td></tr>
+            <tr><th scope="row">Telemetry</th><td>Analytics &amp; usage tracking</td><td class="is-lifeos">None - no analytics, crash reporter, or update ping</td></tr>
+            <tr><th scope="row">Privacy guarantee</th><td>A policy document</td><td class="is-lifeos">Enforced in code - network filter, CSP &amp; DPAPI-encrypted keys</td></tr>
+            <tr><th scope="row">Price</th><td>Monthly fee</td><td class="is-lifeos">Free &amp; MIT - you pay only your own API usage, if you opt in</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW LIFEOS COMPARES ============================ -->
+  <section class="section" id="compare">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">How LifeOS compares</span>
+        <h2 class="balance">One desktop companion vs. a stack of single-purpose tools.</h2>
+        <p>Great tools already exist for each slice of this - a launcher here, a dictation box there, an
+          inbox agent somewhere else. LifeOS folds those workflows into one local-first Windows app. Here is
+          an honest side-by-side, drawn only from each product's official site.</p>
+      </div>
+
+      <!-- Competitor cards -->
+      <div class="cmp-cards" data-reveal>
+        <article class="ccard is-lifeos">
+          <div class="ccard__top">
+            <span class="ccard__logo"><img src="images/logo.png" width="30" height="30" alt="LifeOS logo" loading="lazy" /></span>
+            <div><div class="ccard__name">LifeOS</div><div class="ccard__focus">Local-first companion</div></div>
+          </div>
+          <p class="ccard__desc">Voice-first, privacy-first AI companion for Windows - reminders, chat, web answers, and email, on-device by default.</p>
+          <a class="ccard__link" data-github href="#" target="_blank" rel="noopener">This project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://www.raycast.com/" target="_blank" rel="noopener" aria-label="Raycast official website"><img src="images/competitors/raycast.png" width="30" height="30" alt="Raycast logo" loading="lazy" /></a>
+            <div><div class="ccard__name">Raycast</div><div class="ccard__focus">Launcher / command bar</div></div>
+          </div>
+          <p class="ccard__desc">An extendable keyboard-driven launcher with built-in AI chat and 1000+ extensions. macOS-first, Windows in beta.</p>
+          <a class="ccard__link" href="https://www.raycast.com/" target="_blank" rel="noopener">raycast.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://wisprflow.ai/" target="_blank" rel="noopener" aria-label="Wispr Flow official website"><img src="images/competitors/wisprflow.png" width="30" height="30" alt="Wispr Flow logo" loading="lazy" /></a>
+            <div><div class="ccard__name">Wispr Flow</div><div class="ccard__focus">Voice dictation</div></div>
+          </div>
+          <p class="ccard__desc">AI voice-to-text that turns speech into polished writing inside the apps you already use, across desktop and mobile.</p>
+          <a class="ccard__link" href="https://wisprflow.ai/" target="_blank" rel="noopener">wisprflow.ai <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://superwhisper.com/" target="_blank" rel="noopener" aria-label="Superwhisper official website"><img src="images/competitors/superwhisper.png" width="30" height="30" alt="Superwhisper logo" loading="lazy" /></a>
+            <div><div class="ccard__name">Superwhisper</div><div class="ccard__focus">Voice dictation</div></div>
+          </div>
+          <p class="ccard__desc">AI voice-to-text with on-device transcription models and screen-aware modes. Works offline on supported hardware.</p>
+          <a class="ccard__link" href="https://superwhisper.com/" target="_blank" rel="noopener">superwhisper.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://www.deskwand.com/" target="_blank" rel="noopener" aria-label="DeskWand official website"><img src="images/competitors/deskwand.png" width="30" height="30" alt="DeskWand logo" loading="lazy" /></a>
+            <div><div class="ccard__name">DeskWand</div><div class="ccard__focus">Desktop automation</div></div>
+          </div>
+          <p class="ccard__desc">An open-source, local-first AI desktop agent that automates repeatable computer tasks with your own model and key.</p>
+          <a class="ccard__link" href="https://www.deskwand.com/" target="_blank" rel="noopener">deskwand.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://www.getaskdesk.com/" target="_blank" rel="noopener" aria-label="AskDesk official website"><img src="images/competitors/askdesk.png" width="30" height="30" alt="AskDesk logo" loading="lazy" /></a>
+            <div><div class="ccard__name">AskDesk</div><div class="ccard__focus">Windows launcher</div></div>
+          </div>
+          <p class="ccard__desc">A keyboard-first AI productivity launcher for Windows, with AI assist, quick actions, and voice commands on its Pro tier.</p>
+          <a class="ccard__link" href="https://www.getaskdesk.com/" target="_blank" rel="noopener">getaskdesk.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+
+        <article class="ccard">
+          <div class="ccard__top">
+            <a class="ccard__logo" href="https://jace.ai/" target="_blank" rel="noopener" aria-label="Jace official website"><img src="images/competitors/jace.png" width="30" height="30" alt="Jace logo" loading="lazy" /></a>
+            <div><div class="ccard__name">Jace</div><div class="ccard__focus">AI email assistant</div></div>
+          </div>
+          <p class="ccard__desc">A cloud AI executive assistant that organizes your inbox, drafts replies, and automates email workflows.</p>
+          <a class="ccard__link" href="https://jace.ai/" target="_blank" rel="noopener">jace.ai <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </article>
+      </div>
+
+      <!-- Comparison matrix -->
+      <div class="cmp-scroll" data-reveal style="margin-top:var(--space-8)">
+        <table class="cmp">
+          <caption class="sr-only">Feature comparison of LifeOS and similar tools, based on each product's official website</caption>
+          <thead>
+            <tr>
+              <th scope="col" class="cmp-prod">Product</th>
+              <th scope="col">Voice</th>
+              <th scope="col">NL reminders</th>
+              <th scope="col">Desktop launcher</th>
+              <th scope="col">Email</th>
+              <th scope="col">Local-first</th>
+              <th scope="col">Open source</th>
+              <th scope="col">Platforms</th>
+              <th scope="col">Bring your own key</th>
+              <th scope="col">Offline</th>
+              <th scope="col">Pricing</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="is-lifeos-row">
+              <th scope="row" class="cmp-prod"><span class="cmp-prod__inner"><span class="cmp-logo"><img src="images/logo.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">LifeOS</span></span></th>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td class="cmp-txt">Windows</td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td class="cmp-txt">Free · MIT</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://www.raycast.com/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/raycast.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">Raycast</span></a></th>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td class="cmp-txt">macOS · Win (beta) · iOS</td>
+              <td><span class="p" title="On Teams plans">Partial</span></td>
+              <td><span class="p" title="Local tools yes, AI no">Partial</span></td>
+              <td class="cmp-txt">Free / from $8·mo</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://wisprflow.ai/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/wisprflow.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">Wispr Flow</span></a></th>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td class="cmp-txt">Win · macOS · iOS · Android</td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td class="cmp-txt">Free / from $12·mo</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://superwhisper.com/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/superwhisper.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">Superwhisper</span></a></th>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="p" title="Global hotkey, dictation trigger">Partial</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="y" title="On-device models">✓</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td class="cmp-txt">Win · macOS · iOS</td>
+              <td><span class="y" title="Pro tier">✓</span></td>
+              <td><span class="y" title="Local models">✓</span></td>
+              <td class="cmp-txt">Free / from $8.49·mo</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://www.deskwand.com/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/deskwand.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">DeskWand</span></a></th>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="Desktop agent, not a launcher">✗</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td class="cmp-txt">Win · macOS · Linux</td>
+              <td><span class="y" title="Any model, your key">✓</span></td>
+              <td><span class="p" title="Local models, no explicit offline claim">Partial</span></td>
+              <td class="cmp-txt">Free</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://www.getaskdesk.com/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/askdesk.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">AskDesk</span></a></th>
+              <td><span class="y" title="Pro tier">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="y" title="Yes">✓</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="y" title="No cloud dependency for core AI">✓</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td class="cmp-txt">Windows</td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="p" title="No cloud dependency for core AI">Partial</span></td>
+              <td class="cmp-txt">Free / from $8·mo</td>
+            </tr>
+            <tr>
+              <th scope="row" class="cmp-prod"><a class="cmp-prod__inner" href="https://jace.ai/" target="_blank" rel="noopener"><span class="cmp-logo"><img src="images/competitors/jace.png" width="18" height="18" alt="" loading="lazy" /></span><span class="cmp-prod__name">Jace</span></a></th>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td><span class="y" title="Core feature">✓</span></td>
+              <td><span class="n" title="Cloud service">✗</span></td>
+              <td><span class="n" title="No">✗</span></td>
+              <td class="cmp-txt">Web</td>
+              <td><span class="n" title="Not stated">✗</span></td>
+              <td><span class="n" title="Cloud service">✗</span></td>
+              <td class="cmp-txt">From $20·mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cmp-legend" data-reveal>
+        <span><span class="y">✓</span> Supported</span>
+        <span><span class="n">✗</span> Not offered / not documented</span>
+        <span><span class="p">Partial</span> Limited, plan-gated, or beta</span>
+      </div>
+      <p class="cmp-note" data-reveal>Compiled only from each product's official website (researched July 2026). &ldquo;Not documented&rdquo; means the official site does not list the feature - it may still exist. Products evolve; verify current details on their sites.</p>
+
+      <!-- Why LifeOS exists -->
+      <div class="why-exists" data-reveal>
+        <div class="section-head section-head--center">
+          <span class="eyebrow" style="justify-content:center">Why LifeOS exists</span>
+          <h2 class="balance">The workflow is fragmented. LifeOS puts it back together.</h2>
+        </div>
+        <div class="grid grid-2">
+          <div class="why-point">
+            <span class="why-point__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+            <div><h4>Every tool nails one slice</h4><p>A launcher, a dictation box, an inbox agent - each is excellent at its one job, and none of them talk to each other.</p></div>
+          </div>
+          <div class="why-point">
+            <span class="why-point__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></span>
+            <div><h4>So you keep switching apps</h4><p>Reminders in one window, voice in another, email in a third. The context-switching is its own tax on your day.</p></div>
+          </div>
+          <div class="why-point">
+            <span class="why-point__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+            <div><h4>And most of them send it to a server</h4><p>The richer the assistant, the more of your words leave your machine by default. A privacy policy is a promise, not a guarantee.</p></div>
+          </div>
+          <div class="why-point">
+            <span class="why-point__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+            <div><h4>LifeOS is the one that combines them - locally</h4><p>Voice, reminders, chat, web answers, and email fold into a single Windows app that works offline and blocks the network by default, in code. Cloud is opt-in, with your own key.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURE SHOWCASE ============================ -->
+  <section class="section section--warm" id="features">
+    <div class="container">
+      <div class="section-head" data-reveal>
+        <span class="eyebrow">Features</span>
+        <h2 class="balance">Everything a companion should do - nothing it shouldn't.</h2>
+      </div>
+
+      <!-- Voice launcher -->
+      <div class="feature-row" data-reveal>
+        <div class="feature-row__copy">
+          <span class="eyebrow">Desktop voice launcher</span>
+          <h2>Talk to Yogi from anywhere.</h2>
+          <p>Press <strong>Alt&nbsp;+&nbsp;Shift&nbsp;+&nbsp;Space</strong> and a small always-on-top window opens
+            and starts listening right away. Ask a question, set a reminder, get a spoken answer - then it
+            tucks away. It never steals focus from what you were doing.</p>
+          <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Global hotkey summons it over any app</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Live voice bars driven by your real mic input</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Stays in sync with the main window conversation</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <figure class="shot shot--pad media-glow">
+            <img src="images/screenshots/launcher.png" alt="The floating voice launcher listening, with an animated waveform." width="472" height="473" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Reminders -->
+      <div class="feature-row reverse" data-reveal>
+        <div class="feature-row__copy">
+          <span class="eyebrow">Natural reminders</span>
+          <h2>Reminders in plain language.</h2>
+          <p>Say “remind me in ten minutes to drink water.” Yogi shows a proposal card and waits - nothing is
+            saved until you confirm by click or by saying “yes.” When it fires, you get a Windows
+            notification, a spoken line, and an always-on-top popup you can complete, snooze, or dismiss.</p>
+          <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Confirmation gate - the assistant proposes, you decide</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Recurs daily &amp; weekly by voice - monthly, yearly &amp; custom every-N rules in the Schedules editor</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Full history of triggered, completed, dismissed &amp; missed</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <figure class="shot media-glow">
+            <img src="images/screenshots/schedules.png" alt="The Schedules screen listing active reminders with edit and delete controls." width="1918" height="1017" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="feature-row" data-reveal>
+        <div class="feature-row__copy">
+          <span class="eyebrow">Email intelligence</span>
+          <h2>Your inbox, as a conversation.</h2>
+          <p>Connect your own Gmail account and each new email becomes its own chat: sender, a one- or
+            two-sentence summary, action items, and key dates - with a single spoken heads-up. Ask
+            follow-up questions in plain language. Your email is stored locally and never uploaded.</p>
+          <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Opt-in, read-only Gmail access using your own credentials</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> AI summaries created with your OpenAI key - or turned off</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Sign-in tokens encrypted with Windows secure storage</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <figure class="shot media-glow">
+            <img src="images/screenshots/settings-email.png" alt="Email settings showing Gmail sync options, sync mode, and connection status." width="898" height="942" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+
+      <!-- Privacy / AI settings -->
+      <div class="feature-row reverse" data-reveal id="privacy">
+        <div class="feature-row__copy">
+          <span class="eyebrow">Privacy &amp; AI, on your terms</span>
+          <h2>Cloud only when you say so.</h2>
+          <p>LifeOS works fully offline. Add your own OpenAI API key to unlock smarter chat, more accurate
+            speech-to-text, and more natural voices - each behind its own switch, off by default. Nothing
+            reaches OpenAI until you enable a feature and confirm.</p>
+          <ul class="feature-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Your API key is encrypted at rest and never leaves your device unencrypted</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Requests go straight to OpenAI, billed to your own account</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> One-click “Open data folder” and “Reset local data”</li>
+          </ul>
+        </div>
+        <div class="feature-row__media">
+          <figure class="shot media-glow">
+            <img src="images/screenshots/settings-ai.png" alt="Settings showing privacy, AI features with an OpenAI key, and voice options." width="1918" height="1020" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURE CARDS ============================ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">In the box</span>
+        <h2 class="balance">Everything Yogi can do today.</h2>
+        <p>A focused feature set that actually ships in v0.1.0 - no vaporware.</p>
+      </div>
+      <div class="grid grid-3">
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <h3>Voice conversations</h3>
+          <p>Hold a real, persistent conversation with Yogi across auto-titled, reopenable chat sessions.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <h3>Natural reminders</h3>
+          <p>Create reminders by talking or typing - Yogi asks instead of guessing when the time is unclear.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Web search with sources</h3>
+          <p>Ask live-fact questions and get answers with citations - and an honest note when a search fails.</p>
+        </article>
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></div>
+          <h3>Natural voice output</h3>
+          <p>Six voice personalities with a speed control and preview - streamed from OpenAI or offline Windows voices.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+          <h3>On-device speech-to-text</h3>
+          <p>Speech is transcribed by a model that ships inside the app - offline by default, cloud only if you opt in.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></div>
+          <h3>Schedules &amp; history</h3>
+          <p>See every active schedule, pause them all at once, and review a filterable history of what fired.</p>
+        </article>
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v12H5.2L4 17.5z"/><path d="M8 9h8M8 12h5"/></svg></div>
+          <h3>Email summaries</h3>
+          <p>Turn each new email into a chat with a summary, action items, and a spoken heads-up.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V4s-1 1-4 1-5-2-8-2-4 1-4 1z"/><path d="M4 22v-7"/></svg></div>
+          <h3>Reminders that act</h3>
+          <p>A reminder can run a web lookup when it fires and speak the answer - not just the note you left.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></div>
+          <h3>Works offline</h3>
+          <p>Time, greetings, reminders, schedules, and settings all work with zero network and no key.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ COMPLETE APPLICATION FLOW ============================ -->
+  <section class="section section--divide" id="flow">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Under the hood</span>
+        <h2 class="balance">Complete application flow</h2>
+        <p>Every stage from the download link to a spoken answer - the real path through LifeOS, with the
+          on-device work in the middle and OpenAI touched only when you've turned a cloud feature on.</p>
+      </div>
+
+      <div class="flow" data-reveal role="list" aria-label="Application flow from install to response">
+        <!-- Phase 1 -->
+        <div class="flow-phase" role="listitem">
+          <span class="flow-phase__dot" aria-hidden="true">1</span>
+          <div class="flow-phase__body"><h3>Get it &amp; launch</h3><p>Per-user install, no admin.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l4-4m-4 4l-4-4M4 21h16"/></svg></span>
+          <div class="flow-step__body"><h4>Download the portable <code>.exe</code></h4><p>A single ~155&nbsp;MB file - nothing to install if you don't want to.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg></span>
+          <div class="flow-step__body"><h4>Run it (per-user, no UAC)</h4><p>The installer variant adds Desktop, Start-Menu &amp; uninstall entries; the portable just runs.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v10M18.4 6.6a9 9 0 1 1-12.8 0"/></svg></span>
+          <div class="flow-step__body"><h4>Launch &amp; single-instance lock</h4><p>A second launch just focuses the running window - never a duplicate.</p></div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="flow-phase" role="listitem">
+          <span class="flow-phase__dot" aria-hidden="true">2</span>
+          <div class="flow-phase__body"><h3>Initialize &amp; secure</h3><p>All local, before any UI shows.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span>
+          <div class="flow-step__body"><h4>Open &amp; migrate the local database</h4><p>SQLite via <code>node:sqlite</code> (WAL) opens <code>lifeos.db</code>, runs migrations to schema v8, and seeds 50 settings.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div class="flow-step__body"><h4>Install session security</h4><p>A default-deny network filter + CSP go up first. Nothing can reach the internet yet.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+          <div class="flow-step__body"><h4>Initialize services</h4><p>Conversation engine, action dispatcher, wall-clock scheduler, provider registry, and Gmail sync are wired up.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+          <div class="flow-step__body"><h4>Desktop ready</h4><p>Hidden audio, popup &amp; launcher windows spin up; the tray icon appears and <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>Space</kbd> is armed. Overdue reminders are caught up.</p></div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="flow-phase" role="listitem">
+          <span class="flow-phase__dot" aria-hidden="true">3</span>
+          <div class="flow-phase__body"><h3>Listen &amp; understand</h3><p>On-device by default.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+          <div class="flow-step__body"><h4>You speak or type</h4><p>Press the mic or the global hotkey. The mic engages only on your action - no wake word, no always-on listening.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-6 4 14 3-8h6"/></svg></span>
+          <div class="flow-step__body"><h4>Capture &rarr; 16&nbsp;kHz PCM</h4><p>An AudioWorklet down-samples the mic to 16&nbsp;kHz and streams frames to the main process. Audio is never written to disk.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h7"/></svg></span>
+          <div class="flow-step__body"><h4>Speech-to-text</h4><p>Transcribed on-device by the bundled sherpa-onnx Zipformer - or, if you opt in, by OpenAI <code>gpt-4o-transcribe</code> with automatic fallback to sherpa.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M5.6 5.6l2.8 2.8M3 12h4M16.6 8.4l2.8-2.8M17 12h4M12 12l7 4-4 1-1 4-2-9z"/></svg></span>
+          <div class="flow-step__body"><h4>Intent routing</h4><p>A local router answers time / greeting / settings instantly with no model. Otherwise the gated LLM (<code>gpt-4o-mini</code>, strict JSON) classifies the turn - and if there's no key, an offline parser takes over.</p></div>
+        </div>
+
+        <!-- Branch -->
+        <div class="flow-branch" role="listitem" aria-label="Routing by intent">
+          <div class="flow-route">
+            <span class="flow-route__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <h5>Reminder</h5>
+            <p>Re-routed to the <strong>local</strong> parser &rarr; a confirmation card. The LLM never creates it; nothing saves until you confirm by click or &ldquo;yes.&rdquo;</p>
+          </div>
+          <div class="flow-route">
+            <span class="flow-route__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+            <h5>Chat / question / research</h5>
+            <p>Answered by the model; live-fact turns trigger a web search (<code>gpt-4o-mini-search-preview</code>) and return an answer with sources.</p>
+          </div>
+          <div class="flow-route">
+            <span class="flow-route__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 6 8-6"/></svg></span>
+            <h5>Email tools</h5>
+            <p>When Gmail is connected, a new email is summarized into its own chat with action items - grounded, local, opt-in.</p>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="flow-phase" role="listitem">
+          <span class="flow-phase__dot" aria-hidden="true">4</span>
+          <div class="flow-phase__body"><h3>Act &amp; respond</h3><p>OpenAI only when enabled.</p></div>
+        </div>
+        <div class="flow-step flow-step--cloud" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/></svg></span>
+          <div class="flow-step__body"><h4>OpenAI - gated</h4><p>Requests reach <code>api.openai.com</code> <strong>only</strong> when a capability is enabled, keyed &amp; consented, billed to your account. A reliability guard rewrites any fabricated success into an honest failure.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg></span>
+          <div class="flow-step__body"><h4>Voice output</h4><p>Spoken through a hidden audio window - offline Windows voices by default, or streamed OpenAI <code>gpt-4o-mini-tts</code> via Media Source Extensions when you've enabled cloud voices.</p></div>
+        </div>
+        <div class="flow-step" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+          <div class="flow-step__body"><h4>Displayed everywhere at once</h4><p>The reply fans out to every window - main chat, popup, and launcher stay in sync on one live conversation.</p></div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="flow-phase" role="listitem">
+          <span class="flow-phase__dot" aria-hidden="true">5</span>
+          <div class="flow-phase__body"><h3>Persist</h3><p>Locally, on your disk.</p></div>
+        </div>
+        <div class="flow-step flow-step--last" role="listitem">
+          <span class="flow-step__dot" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg></span>
+          <div class="flow-step__body"><h4>Saved to your conversation history</h4><p>The turn is written to <code>chat_turns</code>, and any fired reminder to history - all in your local SQLite file, never uploaded.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TECHNOLOGY ARCHITECTURE ============================ -->
+  <section class="section section--warm" id="architecture">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Architecture</span>
+        <h2 class="balance">One privileged core, sandboxed everywhere else.</h2>
+        <p>A hardened Electron app: sandboxed renderer windows talk to a single Node main process across a
+          validated IPC boundary, and all the portable, most-tested logic lives in a pure-TypeScript
+          <code>core/</code> layer that imports nothing from Electron or Node.</p>
+      </div>
+
+      <div class="arch" data-reveal>
+        <!-- Renderers -->
+        <div class="arch-layer">
+          <div class="arch-layer__head">
+            <span class="arch-layer__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+            <div><h3>Renderers <span class="tag">sandbox: true · no Node</span></h3><p>Four React 19 + TypeScript windows, styled in plain CSS custom properties (no Tailwind, no CSS-in-JS).</p></div>
+          </div>
+          <div class="arch-chips">
+            <span class="arch-chip"><b>Main window</b> rail nav · chat · mic</span>
+            <span class="arch-chip"><b>Reminder popup</b> always-on-top chat</span>
+            <span class="arch-chip"><b>Voice launcher</b> floating widget</span>
+            <span class="arch-chip"><b>Hidden audio host</b> TTS playback</span>
+          </div>
+        </div>
+
+        <div class="arch-link"><span class="arch-link__label">preload bridges &middot; <code>window.lifeos*</code></span></div>
+
+        <!-- IPC -->
+        <div class="arch-layer arch-layer--accent">
+          <div class="arch-layer__head">
+            <span class="arch-layer__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 12l4-4M4 12l4 4M20 12l-4-4M20 12l-4 4"/></svg></span>
+            <div><h3>IPC security boundary</h3><p>Every call is origin-checked, validated with Zod <code>.strict()</code>, and returned in a <code>Result&lt;T&gt;</code> envelope - handlers never throw across IPC, and a stack trace never leaks.</p></div>
+          </div>
+          <div class="arch-chips">
+            <span class="arch-chip">62 typed channels</span>
+            <span class="arch-chip">origin guard</span>
+            <span class="arch-chip">unknown key = rejection</span>
+            <span class="arch-chip">no raw <code>ipcRenderer</code></span>
+          </div>
+        </div>
+
+        <div class="arch-link"><span class="arch-link__label">validated invoke &amp; broadcast</span></div>
+
+        <!-- Main process -->
+        <div class="arch-layer">
+          <div class="arch-layer__head">
+            <span class="arch-layer__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 9h1M4 15h1M19 9h1M19 15h1M9 4v1M15 4v1M9 19v1M15 19v1"/></svg></span>
+            <div><h3>Main process <span class="tag">Node · never throttled</span></h3><p>The privileged loop that owns persistence, scheduling, and every cloud decision.</p></div>
+          </div>
+          <div class="arch-chips">
+            <span class="arch-chip"><b>ConversationEngine</b></span>
+            <span class="arch-chip"><b>Action dispatcher</b> propose &rarr; confirm</span>
+            <span class="arch-chip"><b>Scheduler</b> + TriggerSink</span>
+            <span class="arch-chip"><b>Provider registry</b> gating</span>
+            <span class="arch-chip"><b>Gmail</b> sync + delivery</span>
+            <span class="arch-chip"><b>Tray · notifications · STT</b></span>
+            <span class="arch-chip"><b>SQLite</b> repositories</span>
+          </div>
+        </div>
+
+        <div class="arch-link"><span class="arch-link__label">imports (one-way) &middot; ESLint-enforced</span></div>
+
+        <!-- core -->
+        <div class="arch-layer arch-layer--core">
+          <div class="arch-layer__head">
+            <span class="arch-layer__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 3-3 3-3-3zM12 16l3 3-3 3-3-3zM2 12l3-3 3 3-3 3zM16 12l3-3 3 3-3 3z"/></svg></span>
+            <div><h3><code>core/</code> - pure TypeScript <span class="tag">zero Electron / Node imports</span></h3><p>The portable, most-tested layer. This one rule is what keeps a future Tauri or mobile port on the table.</p></div>
+          </div>
+          <div class="arch-chips">
+            <span class="arch-chip">parsing · scheduling · time</span>
+            <span class="arch-chip">system-prompt · turn-schema · intent</span>
+            <span class="arch-chip">provider seams: llm · speech · tts · search</span>
+            <span class="arch-chip">types · settings · gmail</span>
+          </div>
+        </div>
+
+        <div class="arch-link arch-link--gated"><span class="arch-link__label">gated: enabled + key + consent &middot; else blocked</span></div>
+
+        <!-- External -->
+        <div class="arch-layer arch-layer--ext">
+          <div class="arch-layer__head">
+            <span class="arch-layer__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg></span>
+            <div><h3>External services <span class="tag">opt-in only</span></h3><p>Behind a default-deny network filter. The allowlist is empty until you enable a cloud feature.</p></div>
+          </div>
+          <div class="arch-chips">
+            <span class="arch-chip"><b>api.openai.com</b> chat · STT · TTS · search</span>
+            <span class="arch-chip"><b>Google Gmail API</b> read-only, PKCE</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW IT WORKS ============================ -->
+  <section class="section section--sunken" id="how">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">How it works</span>
+        <h2 class="balance">From download to first reminder in minutes.</h2>
+      </div>
+      <div class="grid grid-2" style="align-items:start">
+        <div class="steps" data-reveal>
+          <div class="step">
+            <div class="step__num"></div>
+            <div><h3>Install &amp; open</h3><p>Download the Windows installer and launch LifeOS. No sign-up, no account, no cloud - it just opens.</p></div>
+          </div>
+          <div class="step">
+            <div class="step__num"></div>
+            <div><h3>Press the hotkey &amp; speak</h3><p>Hit Alt&nbsp;+&nbsp;Shift&nbsp;+&nbsp;Space anywhere and talk. Yogi transcribes on-device and shows what it heard.</p></div>
+          </div>
+          <div class="step">
+            <div class="step__num"></div>
+            <div><h3>Confirm what matters</h3><p>Yogi proposes a reminder or an answer; you confirm. Nothing is saved or sent without your say-so.</p></div>
+          </div>
+          <div class="step">
+            <div class="step__num"></div>
+            <div><h3>Add cloud smarts (optional)</h3><p>Drop in your own OpenAI key to enable smarter chat, cloud speech, and natural voices - each toggle is yours.</p></div>
+          </div>
+        </div>
+        <div class="feature-row__media" data-reveal data-delay="1">
+          <figure class="shot media-glow">
+            <img src="images/screenshots/history.png" alt="The History screen with All, Completed, Dismissed, and Missed filters." width="1918" height="1017" loading="lazy" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW IT WORKS (INTERNALS) ============================ -->
+  <section class="section" id="internals">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">How it works</span>
+        <h2 class="balance">Frontend and backend, in plain terms.</h2>
+        <p>The renderer is a thin, sandboxed React shell. The Node main process holds the reliability spine -
+          the scheduler, the parser, the database, and the single gate that lets anything reach the cloud.</p>
+      </div>
+
+      <div class="grid grid-2 split-cards">
+        <article class="panel" data-reveal>
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+            <h3>Frontend</h3>
+          </div>
+          <dl class="deflist">
+            <dt>Framework</dt><dd>React 19 + TypeScript, sandboxed (no Node access), bundled by electron-vite.</dd>
+            <dt>Desktop UI</dt><dd>Four windows - main, reminder popup, voice launcher, and a hidden audio host - each its own HTML entry, all sharing <code>core/</code>.</dd>
+            <dt>State</dt><dd>Plain React hooks: <code>useSettings</code>, <code>useReminders</code>, <code>useConversation</code>, <code>useSessions</code>, <code>useSpeech</code>. No Redux, no external store.</dd>
+            <dt>Routing</dt><dd>State-based navigation - a left rail switches <code>chat / schedules / history / settings</code>. No router library for four screens.</dd>
+            <dt>Components</dt><dd>Chat transcript, proposal &amp; dispatch cards, a dependency-free XSS-safe <code>Markdown</code> renderer, a real focus-trap <code>Modal</code>, and a live mic waveform.</dd>
+            <dt>Styling</dt><dd>Plain CSS custom properties - no Tailwind, no CSS-in-JS. Light/dark via <code>prefers-color-scheme</code> and a <code>data-theme</code> override.</dd>
+            <dt>Experience</dt><dd>An offline/online chip, a paused banner, live-ticking relative times, an <code>aria-live</code> transcript, and mid-speech mic interruption.</dd>
+          </dl>
+        </article>
+
+        <article class="panel" data-reveal data-delay="1">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h.01M7 12h.01M7 16h.01M11 8h6M11 12h6M11 16h4"/></svg></span>
+            <h3>Backend</h3>
+          </div>
+          <dl class="deflist">
+            <dt>Business logic</dt><dd>A <code>ConversationEngine</code> runs each turn: local router &rarr; gated LLM &rarr; validate &rarr; branch &rarr; persist &rarr; broadcast, guaranteeing exactly one <code>chat:done</code> per turn.</dd>
+            <dt>Reminder engine</dt><dd>A pure, total <code>parseReminder</code> (56 test fixtures) &rarr; an action dispatcher (propose &rarr; confirm, 90s timeout = cancel) &rarr; a single verified writer. The LLM never actuates.</dd>
+            <dt>Scheduling</dt><dd>Wall-clock authoritative: a 30-second reconcile query - never a far-future timer - plus <code>powerMonitor</code> resume and a missed-while-closed catch-up.</dd>
+            <dt>Voice pipeline</dt><dd>Native offline STT (sherpa-onnx), and a speak coordinator that streams OpenAI audio over MSE with a blob and Windows-voice fallback.</dd>
+            <dt>OpenAI calls</dt><dd>A provider registry gates each seam (LLM / STT / TTS / search) on enable + key + consent, re-run per turn. The key is read at call time and never crosses IPC.</dd>
+            <dt>Database</dt><dd>SQLite via <code>node:sqlite</code> (WAL), 18 tables at schema v8, reached only through parameterized repositories.</dd>
+            <dt>Background services</dt><dd>The scheduler tick and Gmail sync scheduler run in the never-throttled main loop and shut down cleanly, checkpointing the WAL on quit.</dd>
+          </dl>
+        </article>
+      </div>
+
+      <!-- AI tools used during development -->
+      <div class="section-head section-head--center" data-reveal style="margin-top:var(--space-9)">
+        <span class="eyebrow">Honest build notes</span>
+        <h2 class="balance">AI tools used during development.</h2>
+        <p>LifeOS was built with AI assistance. Here's the honest account of what that looked like, based on
+          the project's own planning records and repo - no tool is claimed that the repo doesn't show.</p>
+      </div>
+      <div class="grid grid-2 split-cards" data-reveal>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.2 5.3L20 8l-4 4 1 6-5-3-5 3 1-6-4-4 5.8-.7z"/></svg></div>
+          <h3>Claude Code - the primary pair-programmer</h3>
+          <p><strong>What it helped with:</strong> the 60+ numbered planning &amp; decision records, the natural-language
+            reminder parser and its 56 fixtures, the RRULE recurrence math, the provider-seam gating, the Zod IPC
+            contracts, and the documentation set itself.</p>
+          <p><strong>Where it saved time:</strong> boilerplate-heavy work - wiring 62 typed IPC channels, generating
+            test fixtures, drafting docs, and mechanical refactors moved far faster than by hand.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/><path d="M16 4l4 4"/></svg></div>
+          <h3>Where humans stayed in the loop</h3>
+          <p><strong>Judgment calls:</strong> the framework choice (Electron over Tauri/Flutter), the &ldquo;LLM proposes,
+            user disposes&rdquo; actuation gate, and the privacy-in-code invariants were human-directed decisions the AI
+            implemented against.</p>
+          <p><strong>Manual verification:</strong> anything needing real hardware - live microphone and audible TTS,
+            the Google OAuth round-trip, desktop notifications, and packaging past SmartScreen - is verified by a
+            person, not the model. Those are the &ldquo;verified by construction&rdquo; gaps the docs call out.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ SCREENSHOT CAROUSEL ============================ -->
+  <section class="section section--tight section--divide" id="gallery" aria-label="Product screenshots">
+    <div class="section-head section-head--center container" data-reveal>
+      <span class="eyebrow">A closer look</span>
+      <h2 class="balance">One assistant, every surface.</h2>
+      <p>Uniformly framed so nothing is stretched or cropped. <span class="hint-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg> Click any shot to zoom.</span></p>
+    </div>
+    <div class="marquee" data-reveal>
+      <div class="marquee__track">
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/chat.png" data-caption="Ask Yogi - persistent chat with voice" aria-label="Enlarge screenshot: Ask Yogi, persistent chat with voice">
+          <span class="marquee__media"><img src="images/screenshots/chat.png" width="1918" height="1017" alt="Ask Yogi chat window" loading="lazy" /></span>
+          <span class="marquee__cap">Ask Yogi - persistent chat with voice</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/schedules.png" data-caption="Schedules - active reminders &amp; recurrence" aria-label="Enlarge screenshot: Schedules, active reminders and recurrence">
+          <span class="marquee__media"><img src="images/screenshots/schedules.png" width="1918" height="1017" alt="Active schedules screen" loading="lazy" /></span>
+          <span class="marquee__cap">Schedules - active reminders &amp; recurrence</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/history.png" data-caption="History - triggered, completed, dismissed, missed" aria-label="Enlarge screenshot: History filters">
+          <span class="marquee__media"><img src="images/screenshots/history.png" width="1918" height="1017" alt="Reminder history screen" loading="lazy" /></span>
+          <span class="marquee__cap">History - triggered, completed, dismissed, missed</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/settings-ai.png" data-caption="Settings - privacy, AI &amp; voice" aria-label="Enlarge screenshot: AI and voice settings">
+          <span class="marquee__media"><img src="images/screenshots/settings-ai.png" width="1918" height="1020" alt="AI and voice settings" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - privacy, AI &amp; voice</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/settings-general.png" data-caption="Settings - launcher, tray &amp; data" aria-label="Enlarge screenshot: launcher and tray settings">
+          <span class="marquee__media"><img src="images/screenshots/settings-general.png" width="1918" height="1017" alt="Launcher and tray settings" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - launcher, tray &amp; data</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/settings-email.png" data-caption="Settings - Gmail sync &amp; email AI" aria-label="Enlarge screenshot: Gmail email settings">
+          <span class="marquee__media"><img src="images/screenshots/settings-email.png" width="898" height="942" alt="Gmail email settings" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - Gmail sync &amp; email AI</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" data-full="images/screenshots/launcher.png" data-caption="Floating voice launcher - Alt+Shift+Space" aria-label="Enlarge screenshot: floating voice launcher">
+          <span class="marquee__media"><img src="images/screenshots/launcher.png" width="472" height="473" alt="Floating voice launcher" loading="lazy" /></span>
+          <span class="marquee__cap">Floating voice launcher - Alt+Shift+Space</span>
+        </button>
+        <!-- duplicate set for the seamless loop (hidden from AT and tab order) -->
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/chat.png" data-caption="Ask Yogi - persistent chat with voice">
+          <span class="marquee__media"><img src="images/screenshots/chat.png" width="1918" height="1017" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Ask Yogi - persistent chat with voice</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/schedules.png" data-caption="Schedules - active reminders &amp; recurrence">
+          <span class="marquee__media"><img src="images/screenshots/schedules.png" width="1918" height="1017" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Schedules - active reminders &amp; recurrence</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/history.png" data-caption="History - triggered, completed, dismissed, missed">
+          <span class="marquee__media"><img src="images/screenshots/history.png" width="1918" height="1017" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">History - triggered, completed, dismissed, missed</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/settings-ai.png" data-caption="Settings - privacy, AI &amp; voice">
+          <span class="marquee__media"><img src="images/screenshots/settings-ai.png" width="1918" height="1020" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - privacy, AI &amp; voice</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/settings-general.png" data-caption="Settings - launcher, tray &amp; data">
+          <span class="marquee__media"><img src="images/screenshots/settings-general.png" width="1918" height="1017" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - launcher, tray &amp; data</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/settings-email.png" data-caption="Settings - Gmail sync &amp; email AI">
+          <span class="marquee__media"><img src="images/screenshots/settings-email.png" width="898" height="942" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Settings - Gmail sync &amp; email AI</span>
+        </button>
+        <button class="marquee__item lightbox-trigger" type="button" tabindex="-1" aria-hidden="true" data-full="images/screenshots/launcher.png" data-caption="Floating voice launcher - Alt+Shift+Space">
+          <span class="marquee__media"><img src="images/screenshots/launcher.png" width="472" height="473" alt="" loading="lazy" /></span>
+          <span class="marquee__cap">Floating voice launcher - Alt+Shift+Space</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ LIVE DEMO ============================ -->
+  <section class="section section--sunken" id="demo">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Live demo</span>
+        <h2 class="balance">See the whole journey in one pass.</h2>
+        <p>The core loop, the features worth showing off, and the awkward moments - handled honestly.</p>
+      </div>
+
+      <!-- Core user flow -->
+      <h3 class="demo-subhead" data-reveal>The core user flow</h3>
+      <div class="miniflow" data-reveal role="list" aria-label="Core user flow">
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg></span>
+          <b>Launch</b><span>Open from the tray</span>
+        </div>
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+          <b>Voice</b><span>Alt+Shift+Space, talk</span>
+        </div>
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+          <b>Reminder</b><span>Confirm the card</span>
+        </div>
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg></span>
+          <b>Response</b><span>Spoken + on screen</span>
+        </div>
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 4-5"/></svg></span>
+          <b>History</b><span>Filterable log</span>
+        </div>
+        <div class="miniflow__step" role="listitem">
+          <span class="miniflow__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg></span>
+          <b>Scheduling</b><span>Recurs &amp; snoozes</span>
+        </div>
+      </div>
+
+      <!-- Proud features -->
+      <h3 class="demo-subhead" data-reveal style="margin-top:var(--space-9)">Features I'm most proud of</h3>
+      <div class="grid grid-3 split-cards">
+        <article class="proud" data-reveal>
+          <button class="proud__shot lightbox-trigger" type="button" data-full="images/screenshots/launcher.png" data-caption="Floating voice launcher - Alt+Shift+Space" aria-label="Enlarge the voice launcher screenshot">
+            <span class="proud__media"><img src="images/screenshots/launcher.png" width="472" height="473" alt="Floating voice launcher listening to a greeting, with a live waveform" loading="lazy" /></span>
+          </button>
+          <h4>Floating desktop launcher</h4>
+          <p>A frameless, always-on-top widget summoned by a global hotkey. It shows over any app, starts
+            listening immediately, and never steals focus - and it shares one live conversation with the
+            main window and the reminder popup.</p>
+        </article>
+        <article class="proud" data-reveal data-delay="1">
+          <button class="proud__shot lightbox-trigger" type="button" data-full="images/screenshots/schedules.png" data-caption="Schedules - active reminders &amp; recurrence" aria-label="Enlarge the schedules screenshot">
+            <span class="proud__media"><img src="images/screenshots/schedules.png" width="1918" height="1017" alt="Active schedules" loading="lazy" /></span>
+          </button>
+          <h4>Natural-language reminders</h4>
+          <p>Say &ldquo;remind me in ten minutes to drink water.&rdquo; A deterministic local parser (56 test
+            fixtures) reads it, proposes a card, and waits - the model never creates the reminder, and nothing
+            is saved until you confirm by click or by saying &ldquo;yes.&rdquo;</p>
+        </article>
+        <article class="proud" data-reveal data-delay="2">
+          <button class="proud__shot lightbox-trigger" type="button" data-full="images/screenshots/settings-ai.png" data-caption="Settings - privacy, AI &amp; voice" aria-label="Enlarge the privacy settings screenshot">
+            <span class="proud__media"><img src="images/screenshots/settings-ai.png" width="1918" height="1020" alt="Privacy and AI settings" loading="lazy" /></span>
+          </button>
+          <h4>Local-first, enforced in code</h4>
+          <p>A default-deny network filter blocks every outbound request until you switch on a cloud feature.
+            Your key is DPAPI-encrypted and never crosses the app's internal boundary. Privacy you can verify,
+            not just a policy you're asked to trust.</p>
+        </article>
+      </div>
+
+      <!-- Edge cases -->
+      <h3 class="demo-subhead" data-reveal style="margin-top:var(--space-9)">Edge cases handled</h3>
+      <div class="grid grid-3 split-cards" data-reveal>
+        <div class="edge">
+          <h4><span class="edge__tag">Interruption</span> A reminder fires mid-conversation</h4>
+          <p>The launcher stops speaking, hides, and snapshots your session; the reminder popup takes over. When
+            you're done, it re-opens on the same chat and re-reads the interrupted reply from the start.</p>
+        </div>
+        <div class="edge">
+          <h4><span class="edge__tag">Offline</span> No internet at all</h4>
+          <p>Reminders, time, greetings, help, and &ldquo;show schedules&rdquo; all work with zero network.
+            On-device speech-to-text and Windows voices keep running; only genuine reasoning is unavailable.</p>
+        </div>
+        <div class="edge">
+          <h4><span class="edge__tag">No API key</span> Cloud features off</h4>
+          <p>The chip reads &ldquo;Offline · on-device.&rdquo; Reminder-shaped input still routes to the local
+            parser; a request that truly needs the cloud gets an honest &ldquo;connect OpenAI&rdquo; notice - never a fake answer.</p>
+        </div>
+        <div class="edge">
+          <h4><span class="edge__tag">Network failure</span> The cloud call dies</h4>
+          <p>Cloud speech-to-text falls back to sherpa; cloud voice falls back to Windows; a failed chat or
+            search returns an honest message - never a hang, never a fabricated success.</p>
+        </div>
+        <div class="edge">
+          <h4><span class="edge__tag">Mis-hear</span> Speech recognition slips</h4>
+          <p>Offline STT can hear &ldquo;remained me&rdquo; for &ldquo;remind me.&rdquo; A bounded edit-distance
+            normalizer canonicalizes the mangled cue so the reminder still parses. If the model is missing, typing still works.</p>
+        </div>
+        <div class="edge">
+          <h4><span class="edge__tag">Email off</span> Gmail sync disabled</h4>
+          <p>Gmail is opt-in and off by default. With it disabled there are no email chats, no sync, and no
+            Google requests - the rest of the assistant is completely unaffected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHY LOCAL-FIRST ============================ -->
+  <section class="section section--warm">
+    <div class="container">
+      <div class="callout" data-reveal>
+        <span class="eyebrow" style="justify-content:center">Why local-first matters</span>
+        <h2 class="balance">Privacy enforced in code, not in a policy.</h2>
+        <p>Most assistants send everything to a server and ask you to trust a document. LifeOS flips that:
+          it runs on your machine, and cloud access is opt-in, per-feature, and uses your own key.</p>
+        <div class="grid grid-2 why-grid" style="margin-top:var(--space-8);text-align:left">
+          <div class="tile"><span class="tile__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><div><h4>Your data, one file</h4><p>Reminders, chats, and settings sit in a local SQLite database you can open and read yourself.</p></div></div>
+          <div class="tile"><span class="tile__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/></svg></span><div><h4>Default-deny network</h4><p>A built-in filter blocks every outbound request until you switch on a cloud feature.</p></div></div>
+          <div class="tile"><span class="tile__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg></span><div><h4>No tracking, ever</h4><p>No analytics SDK, no crash reporter, no usage stats, no update ping. LifeOS doesn’t know you exist.</p></div></div>
+          <div class="tile"><span class="tile__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 7a4 4 0 1 0-4 4h9m-3-4v8"/></svg></span><div><h4>Bring your own key</h4><p>Cloud features use your OpenAI key, encrypted with Windows secure storage and billed to you.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TECH STACK ============================ -->
+  <section class="section" id="tech">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Built with</span>
+        <h2 class="balance">A deliberately small, modern stack.</h2>
+        <p>Native desktop performance, a tiny runtime dependency surface, and one language end to end.</p>
+      </div>
+      <div class="tech-grid" data-reveal>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg></span><div class="tech__body"><span class="tech__cat">Language</span><h4>TypeScript <span class="tech__ver">5.7</span></h4><p>One language across the main process, renderers, and the pure core - with strict types at the IPC and LLM boundaries.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span><div class="tech__body"><span class="tech__cat">Desktop runtime</span><h4>Electron <span class="tech__ver">43.1.0</span></h4><p>The app shell - Chromium 150 + Node 24. The main process is a never-throttled Node loop, ideal for a scheduler.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></svg></span><div class="tech__body"><span class="tech__cat">UI framework</span><h4>React <span class="tech__ver">19</span></h4><p>The four sandboxed renderer windows - main, reminder popup, voice launcher, and hidden audio host.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><div class="tech__body"><span class="tech__cat">Build tooling</span><h4>Vite 6 · electron-vite <span class="tech__ver">5</span></h4><p>Bundles main, preload, and renderer with the single-file preloads that sandbox mode requires; HMR in dev.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2M21 12H11m0 0l3-3m-3 3l3 3"/></svg></span><div class="tech__body"><span class="tech__cat">Packaging</span><h4>electron-builder <span class="tech__ver">26</span></h4><p>Produces the NSIS installer and the single-file portable exe - a per-user install with no admin prompt.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></span><div class="tech__body"><span class="tech__cat">Database</span><h4>node:sqlite <span class="tech__ver">built-in</span></h4><p>A local WAL database built into Electron - no native module to compile or rebuild - behind a swappable driver.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><div class="tech__body"><span class="tech__cat">Voice - speech-to-text</span><h4>sherpa-onnx-node <span class="tech__ver">1.13.4</span></h4><p>An on-device streaming Zipformer (~68 MB) - the default, offline, zero-network transcription engine.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg></span><div class="tech__body"><span class="tech__cat">Voice - text-to-speech</span><h4>Web Speech + OpenAI TTS</h4><p>Offline Windows voices by default; streamed OpenAI <code>gpt-4o-mini-tts</code> over Media Source Extensions when opted in.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/></svg></span><div class="tech__body"><span class="tech__cat">Cloud AI - OpenAI APIs</span><h4>OpenAI <span class="tech__ver">opt-in</span></h4><p><code>gpt-4o-mini</code> chat, <code>gpt-4o-transcribe</code> STT, <code>gpt-4o-mini-tts</code> voice, and <code>gpt-4o-mini-search-preview</code> web search - each behind its own toggle, on your key.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 2v4M16 2v4M8 15h3"/></svg></span><div class="tech__body"><span class="tech__cat">Library</span><h4>chrono-node <span class="tech__ver">2.9.1</span></h4><p>Natural-language date parsing - turns &ldquo;in ten minutes&rdquo; or &ldquo;next Monday at 7&rdquo; into a real instant.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div class="tech__body"><span class="tech__cat">Library</span><h4>Luxon <span class="tech__ver">3.7.2</span></h4><p>DST-correct next-occurrence math and timezone-aware recurrence, with RRULE strings computed on top.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><div class="tech__body"><span class="tech__cat">Validation</span><h4>Zod <span class="tech__ver">4.4.3</span></h4><p><code>.strict()</code> at every IPC handler and on the LLM turn schema - an unknown key is a rejection, not a silent pass.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><div class="tech__body"><span class="tech__cat">Security</span><h4>Electron safeStorage</h4><p>Windows DPAPI encryption for the OpenAI key and Gmail tokens at rest - plaintext is produced only in main, never across IPC.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></span><div class="tech__body"><span class="tech__cat">Testing &amp; linting</span><h4>Vitest 2.1 · ESLint 9</h4><p>523 tests across 55 files; ESLint enforces the golden rule that <code>core/</code> imports nothing from Electron or Node.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8l-9-5-9 5v8l9 5z"/><path d="M3.3 7L12 12l8.7-5M12 22V12"/></svg></span><div class="tech__body"><span class="tech__cat">Package manager</span><h4>npm</h4><p>A single <code>package-lock.json</code>, no pnpm or yarn - and only four runtime dependencies ship in the app.</p></div></article>
+        <article class="tech"><span class="tech__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.09 4.26L19 8l-3.5 3.4.8 4.9L12 14l-4.3 2.3.8-4.9L5 8l4.91-.74z"/></svg></span><div class="tech__body"><span class="tech__cat">Icons &amp; UI</span><h4>Inline SVG · plain CSS</h4><p>Hand-authored inline SVG icons and CSS custom properties - no icon library and no CSS framework in the app.</p></div></article>
+      </div>
+      <div class="stat-row" style="margin-top:var(--space-9)" data-reveal>
+        <div class="stat"><b>4</b><span>runtime dependencies</span></div>
+        <div class="stat"><b>0</b><span>network calls by default</span></div>
+        <div class="stat"><b>6</b><span>voice personalities</span></div>
+        <div class="stat"><b>100%</b><span>on-device speech-to-text</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ OPENAI API COST ============================ -->
+  <section class="section section--divide" id="cost">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">What cloud AI costs</span>
+        <h2 class="balance">Free to run. Pennies when you opt in.</h2>
+        <p>LifeOS itself is free. Cloud features use <strong>your own</strong> OpenAI key and are billed to you
+          directly. Here's roughly what that adds up to - so there are no surprises.</p>
+      </div>
+
+      <div class="table-wrap" data-reveal>
+        <table class="compare cost-table">
+          <caption class="sr-only">Estimated OpenAI usage cost per capability</caption>
+          <thead>
+            <tr><th scope="col">Capability</th><th scope="col">OpenAI model</th><th scope="col">Approx. price</th><th scope="col">Free offline alternative</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Speech-to-text</th><td><code>gpt-4o-transcribe</code></td><td>~$0.006 / minute of audio</td><td class="is-yes">✓ sherpa-onnx, on-device</td></tr>
+            <tr><th scope="row">Chat &amp; responses</th><td><code>gpt-4o-mini</code></td><td>~$0.15 / 1M input · $0.60 / 1M output tokens</td><td class="is-no">✗ needs a key</td></tr>
+            <tr><th scope="row">Text-to-speech</th><td><code>gpt-4o-mini-tts</code></td><td>~$0.015 / minute of audio</td><td class="is-yes">✓ Windows voices</td></tr>
+            <tr><th scope="row">Web search</th><td><code>gpt-4o-mini-search-preview</code></td><td><code>gpt-4o-mini</code> tokens + a small per-call search fee</td><td class="is-no">✗ needs a key</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cost-note" data-reveal>
+        <strong>Our worked estimate</strong> assumes a fully-cloud voice exchange: ~1 minute of audio in and out,
+        one <code>gpt-4o-mini</code> turn (~1,200 input + ~150 output tokens). STT ≈ $0.006 + chat ≈ $0.0003 +
+        TTS ≈ $0.0075. Text-only chat, or voice with the offline STT/TTS defaults, costs far less because it skips
+        the per-minute audio charges.
+      </div>
+
+      <div class="stat-row cost-estimates" data-reveal>
+        <div class="stat cost-est"><b>~$0.014</b><span>a 1-minute voice exchange<br>(all cloud features on)</span></div>
+        <div class="stat cost-est"><b>~$0.14</b><span>a 10-minute conversation<br>(≈ ten exchanges)</span></div>
+        <div class="stat cost-est"><b>~$1.40</b><span>100 one-minute conversations<br>(≈ a light month)</span></div>
+        <div class="stat cost-est"><b>$0.00</b><span>the same, fully offline<br>(local STT + Windows voice)</span></div>
+      </div>
+
+      <div class="grid grid-2 split-cards" data-reveal style="margin-top:var(--space-8)">
+        <article class="card cost-col cost-col--free">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <h3>Free forever - no key, no network</h3>
+          <ul class="tick-list">
+            <li>Natural-language reminders, recurrence, snooze &amp; history</li>
+            <li>On-device speech-to-text (sherpa-onnx)</li>
+            <li>Offline Windows voices</li>
+            <li>Local commands - time, date, greetings, help, &ldquo;show schedules&rdquo;</li>
+            <li>Notifications, schedules, settings, theme, reset</li>
+          </ul>
+        </article>
+        <article class="card cost-col cost-col--paid">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 .5-9 6 6 0 0 0-11.6-1.5A4 4 0 0 0 6.5 19z"/></svg></div>
+          <h3>Needs your OpenAI key - opt-in, per feature</h3>
+          <ul class="tick-list tick-list--cloud">
+            <li>Smarter conversational chat (<code>gpt-4o-mini</code>)</li>
+            <li>Higher-accuracy cloud speech-to-text</li>
+            <li>Natural cloud voices (streamed)</li>
+            <li>Web search with real citations</li>
+            <li>Gmail email summaries &amp; auto-research</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="doc-note" data-reveal style="margin-top:var(--space-6)">
+        <strong>Pricing changes.</strong> These figures are estimates checked against OpenAI's published rates in
+        July 2026 and are shown only to set expectations. Always verify the current numbers on
+        <a href="https://openai.com/api/pricing/" target="_blank" rel="noopener">OpenAI's official pricing page</a>
+        before relying on them - your actual cost depends on your usage, prompt length, and OpenAI's current rates.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ LOCAL DATABASE ============================ -->
+  <section class="section section--warm" id="database">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Your data, on your disk</span>
+        <h2 class="balance">Where everything lives after you install.</h2>
+        <p>LifeOS keeps <em>everything</em> in one local SQLite file you can open and read yourself. No cloud
+          bucket, no hidden config sprawl - just a database on your machine.</p>
+      </div>
+
+      <div class="grid grid-2 split-cards" style="align-items:start">
+        <div data-reveal>
+          <div class="db-path">
+            <span class="db-path__label">Default location</span>
+            <code>%APPDATA%\LifeOS\lifeos.db</code>
+            <span class="db-path__sub">(development builds use <code>%APPDATA%\lifeos\</code>)</span>
+          </div>
+          <pre class="db-tree" aria-label="Data folder structure"><code>%APPDATA%\LifeOS\
+├─ lifeos.db        main SQLite database - all your data
+├─ lifeos.db-wal    write-ahead log  ·  do not edit
+├─ lifeos.db-shm    shared-memory index  ·  do not edit
+└─ …                Electron profile (cache, GPU, logs)</code></pre>
+          <p class="db-caption">SQLite via <code>node:sqlite</code>, WAL mode, foreign keys on - schema
+            <code>user_version</code> 8, 18 tables. Tip: Settings &rarr; Privacy &rarr; <strong>Open data
+            folder</strong> jumps straight here.</p>
+        </div>
+
+        <div data-reveal data-delay="1">
+          <div class="db-kv">
+            <div class="db-kv__row"><span>Reminders &amp; recurrence</span><code>reminders, reminder_history</code></div>
+            <div class="db-kv__row"><span>Conversation history</span><code>chat_sessions, chat_turns</code></div>
+            <div class="db-kv__row"><span>Settings (50 keys)</span><code>settings</code></div>
+            <div class="db-kv__row"><span>Email cache</span><code>gmail_threads, gmail_messages, …</code></div>
+            <div class="db-kv__row"><span>Email AI &amp; research</span><code>email_ai_context, web_research</code></div>
+            <div class="db-kv__row"><span>Diagnostics</span><code>app_logs</code></div>
+            <div class="db-kv__row"><span>API key &amp; OAuth tokens</span><code>settings · DPAPI ciphertext</code></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-3 split-cards" style="margin-top:var(--space-8)">
+        <article class="card" data-reveal>
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Inspect the database</h3>
+          <p>Open <code>lifeos.db</code> with any SQLite viewer - <a href="https://sqlitebrowser.org/" target="_blank" rel="noopener">DB Browser for SQLite</a> is the easy pick. Quit LifeOS first (or open read-only) so it isn't writing the WAL while you browse.</p>
+        </article>
+        <article class="card" data-reveal data-delay="1">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+          <h3>Don't edit these by hand</h3>
+          <p>Leave the <code>-wal</code> / <code>-shm</code> sidecars alone, and never edit the <code>*_ciphertext</code> columns - your OpenAI key and Gmail tokens are DPAPI-encrypted there, so a manual edit just corrupts them.</p>
+        </article>
+        <article class="card" data-reveal data-delay="2">
+          <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg></div>
+          <h3>Reset safely</h3>
+          <p>Settings &rarr; Danger zone &rarr; type <code>RESET</code> deletes <code>lifeos.db</code> and its sidecars, then relaunches. Uninstalling the app deliberately <em>keeps</em> this folder, so an accidental uninstall never loses your data.</p>
+        </article>
+      </div>
+
+      <div class="doc-note" data-reveal style="margin-top:var(--space-6)">
+        <strong>On credentials:</strong> secrets are encrypted with Electron <code>safeStorage</code>, which uses the
+        <strong>Windows Data Protection API (DPAPI)</strong>. The ciphertext lives in the <code>settings</code>
+        table - LifeOS does <em>not</em> use the Windows Credential Manager. Decrypted values exist only in the
+        main process and never cross into the UI.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ WHAT'S NEXT ============================ -->
+  <section class="section" id="roadmap">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">What's next</span>
+        <h2 class="balance">An honest roadmap - and what still needs work.</h2>
+        <p>Everything below is on the roadmap, not in today's build. Marked plainly, because a showcase that
+          overstates itself isn't much of a showcase.</p>
+      </div>
+
+      <div class="grid grid-3 split-cards">
+        <article class="panel" data-reveal>
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+            <h3>Future features</h3>
+          </div>
+          <ul class="road-list">
+            <li><b>Long-term memory</b> - durable facts about you; the schema is wired, the extraction &amp; recall aren't.</li>
+            <li><b>Local LLM via Ollama</b> - the same provider seam, with zero network and zero cost.</li>
+            <li><b>Streaming replies</b> - the channel is reserved; today replies arrive whole.</li>
+            <li><b>Recurring by voice, beyond weekly</b> - the editor already does monthly/yearly; the parser is next.</li>
+            <li><b>Auto-update</b> - <code>latest.yml</code> already ships; wiring <code>electron-updater</code> is the step left.</li>
+            <li><b>Import / export</b> your data as JSON, and more tools (weather, opt-in calendar).</li>
+            <li><b>macOS &amp; Linux</b> - <code>core/</code> is already pure TypeScript; only the Electron layer changes.</li>
+          </ul>
+        </article>
+
+        <article class="panel" data-reveal data-delay="1">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+            <h3>Biggest improvements needed</h3>
+          </div>
+          <ul class="road-list road-list--warn">
+            <li><b>Ship-ready packaging</b> - code-sign the build and QA it on a clean Windows VM to end the SmartScreen warning.</li>
+            <li><b>Long-term memory</b> is the real gap between &ldquo;chatbot&rdquo; and &ldquo;companion.&rdquo;</li>
+            <li><b>Move STT decode off the main thread</b> into a worker for isolation.</li>
+            <li><b>Repay UI debt</b> - a shared button primitive, retire the legacy chat screen, keyboard nav on the popup menu.</li>
+            <li><b>Log retention &amp; an in-app log viewer</b> - neither is wired yet.</li>
+            <li><b>Streaming + inline cloud-error recovery</b> for a smoother feel under flaky networks.</li>
+          </ul>
+        </article>
+
+        <article class="panel" data-reveal data-delay="2">
+          <div class="panel__head">
+            <span class="panel__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg></span>
+            <h3>If this became a startup</h3>
+          </div>
+          <ul class="road-list">
+            <li><b>Audience</b> - privacy-conscious Windows power users first; later, teams in regulated fields that can't ship data to a vendor cloud.</li>
+            <li><b>Model</b> - the app stays free &amp; open-source, bring-your-own-key. Monetize an optional managed layer, never the core.</li>
+            <li><b>Pricing ideas</b> - a low monthly &ldquo;managed cloud&rdquo; tier (a hosted relay so non-technical users skip key setup), and a team tier with policy controls &amp; local-model deployment.</li>
+            <li><b>Enterprise</b> - &ldquo;provably on-device&rdquo; is a compliance story, not just a feature.</li>
+            <li><b>Scaling</b> - because the cloud is opt-in, growth is mostly client-side; no per-user server cost until someone chooses the managed tier.</li>
+          </ul>
+          <p class="road-hedge">Framed as hypotheticals - LifeOS is a free, open-source project today.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ DOWNLOAD ============================ -->
+  <section class="section section--sunken" id="download">
+    <div class="container">
+      <div class="download" data-reveal>
+        <div>
+          <span class="eyebrow">Download</span>
+          <h2 class="balance">Get LifeOS for Windows.</h2>
+          <p>Free, open-source, and yours to keep. Install it and start talking to Yogi in minutes.</p>
+          <div class="download__cta">
+            <a class="btn btn-primary btn-lg" data-download href="#">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l4-4m-4 4l-4-4M4 21h16"/></svg>
+              Download for Windows
+            </a>
+            <div class="download__meta">
+              <span>◆ Portable · <span data-cfg="DOWNLOAD_FILENAME">.exe</span></span>
+              <span>◆ <span data-cfg="DOWNLOAD_SIZE">~155 MB</span></span>
+              <span>◆ <span data-cfg="PLATFORM">Windows · 64-bit</span></span>
+              <span>◆ v<span data-cfg="VERSION">0.1.0</span></span>
+            </div>
+          </div>
+          <div class="doc-note" style="margin-top:var(--space-5)">
+            <strong>Heads-up:</strong> this is the <strong>portable</strong> build - it runs straight from the
+            file, nothing to install. It isn’t code-signed yet, so Windows SmartScreen may show “Windows
+            protected your PC.” Choose <em>More info → Run anyway</em> to continue. Prefer to build it yourself?
+            Grab the source <a data-github href="#" target="_blank" rel="noopener">on GitHub</a>.
+          </div>
+        </div>
+        <div class="download__panel">
+          <div class="req-row"><span>Operating system</span><span>Windows 10 / 11</span></div>
+          <div class="req-row"><span>Architecture</span><span>64-bit (x64)</span></div>
+          <div class="req-row"><span>Disk space</span><span>~400 MB</span></div>
+          <div class="req-row"><span>Memory</span><span>~200 MB idle</span></div>
+          <div class="req-row"><span>Account</span><span>None required</span></div>
+          <div class="req-row"><span>Price</span><span>Free · MIT</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">FAQ</span>
+        <h2 class="balance">Honest answers.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        <details>
+          <summary>Do my reminders fire when LifeOS is closed? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">Reminders fire while LifeOS is running, including when it’s tucked away in the system tray (closing the window with ✕ keeps it running by default). If you fully quit LifeOS or shut down your PC, reminders won’t fire until you open it again - and when you do, it tells you what you missed rather than firing old alarms late. This is deliberate: LifeOS refuses to install a hidden background service.</div>
+        </details>
+        <details>
+          <summary>Is my data sent anywhere? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">Not by default - LifeOS makes zero network requests with its default settings, enforced in code by a filter that blocks anything not on an allowlist. The only exception is when you enable a cloud AI feature and add your own OpenAI key; then the text of that command (plus the current date and time) goes directly to OpenAI under your account. Your reminders, history, settings, and audio are never sent.</div>
+        </details>
+        <details>
+          <summary>Do I need an OpenAI key? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">No. LifeOS works fully offline for reminders, time, schedules, on-device speech-to-text, and offline voices. A key is optional and unlocks smarter chat, cloud speech-to-text, more natural voices, web search, and email summaries. You bring your own key and OpenAI bills you directly - the app itself is free.</div>
+        </details>
+        <details>
+          <summary>Does Yogi listen in the background or use a wake word? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">No. There’s no wake word and no always-on listening. Yogi only records when you press the mic or the global hotkey, and audio is transcribed on your device and never written to disk. A wake word is on the roadmap but is not in this release.</div>
+        </details>
+        <details>
+          <summary>Which platforms are supported? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">Windows 10 (version 1809 or newer) and Windows 11, 64-bit only. macOS, Linux, mobile, and web are not available in this release. The core is written in portable TypeScript, so other platforms are a future possibility.</div>
+        </details>
+        <details>
+          <summary>Why does Windows warn me during install? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">The installer isn’t code-signed yet, so Microsoft SmartScreen shows a generic “Windows protected your PC” warning. Click <em>More info → Run anyway</em> to proceed. Code signing is planned for a future release.</div>
+        </details>
+        <details>
+          <summary>How do I remove my data? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="faq-body">Open Settings → Danger Zone → “Reset local data.” It permanently deletes the reminders, history, and settings in your LifeOS data folder and nothing else on your device. Note that uninstalling the app does not delete this folder - that’s intentional, so an accidental uninstall never loses your data.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="index.html"><img src="images/logo.png" alt="" width="26" height="26" /><span>LifeOS</span></a>
+        <p>A privacy-first, voice-first AI assistant for Windows. Everything stays on your device.</p>
+      </div>
+      <div>
+        <h5>Product</h5>
+        <ul>
+          <li><a href="#problem">The problem</a></li>
+          <li><a href="#compare">How it compares</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#flow">How it works</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#cost">API cost</a></li>
+          <li><a href="#database">Local data</a></li>
+          <li><a href="#roadmap">What's next</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          <li><a data-email href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Project</h5>
+        <ul>
+          <li><a data-github href="#" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a data-releases href="#" target="_blank" rel="noopener">Releases</a></li>
+          <li><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">MIT License</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> DreamNotion · LifeOS v<span data-cfg="VERSION">0.1.0</span></span>
+      <div class="badges">
+        <span class="pill"><span class="dot"></span> MIT License</span>
+        <span class="pill">Made for Windows</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ LIGHTBOX ============================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Screenshot viewer" hidden>
+  <div class="lightbox__backdrop" data-lb-close></div>
+  <button class="lightbox__btn lightbox__close" type="button" data-lb-close aria-label="Close (Esc)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <button class="lightbox__btn lightbox__prev" type="button" data-lb-prev aria-label="Previous (Left arrow)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+  </button>
+  <button class="lightbox__btn lightbox__next" type="button" data-lb-next aria-label="Next (Right arrow)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </button>
+  <figure class="lightbox__stage">
+    <img class="lightbox__img" id="lightbox-img" src="" alt="" />
+    <figcaption class="lightbox__cap" id="lightbox-cap"></figcaption>
+  </figure>
+  <div class="lightbox__hud">
+    <span class="lightbox__count" id="lightbox-count"></span>
+    <button class="lightbox__btn lightbox__zoom" type="button" data-lb-zoom aria-label="Toggle zoom">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3M11 8v6M8 11h6"/></svg>
+      <span class="lightbox__zoomlabel">Zoom</span>
+    </button>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
